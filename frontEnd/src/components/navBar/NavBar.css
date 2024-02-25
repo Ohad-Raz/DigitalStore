@@ -1,0 +1,86 @@
+.navbar {
+  background-color: #FFFFFF;
+  color: black;
+}
+.navbar-brand img {
+  height: 5rem;
+}
+.activeNav {
+  font-size: 1.4rem;
+  height: 5rem;
+  width: 100%;
+  /* position: fixed;
+  /* important */
+ 
+  top: 0;
+  transition: 0.3s linear;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 40;
+  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.08);
+}
+.hidden {
+  font-size: 1.4rem;
+  height: 5rem;
+  width: 100%;
+  z-index: 40;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: -80px;
+  transition: 0.3s linear;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+.container {
+  margin-left: 0rem;
+}
+.navOpenBackground {
+  background-color: #F0E5D3;
+}
+.container {
+  margin-top: 0rem;
+}
+.fa-circle-user {
+  font-size: 2rem;
+  padding: 1rem;
+  color: #213547;
+  transition: transform 0.3s ease;
+}
+.fa-circle-user:hover {
+  transform: scale(1.2);
+}
+.AuthDivNav {
+  margin-right: -5.5rem;
+}
+.SignOutBtn {
+  margin-right: 1rem;
+}
+.DivForSignOutBtn {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .navbar-light {
+    color: #000;
+  }
+  .container {
+    margin-top: -1rem;
+  }
+  .nav-link {
+    color: black;
+  }
+}
+@media (max-width: 425px) {
+  .navbar-light {
+    color: #000;
+  }
+  .nav-link {
+    color: black;
+  }
+}
