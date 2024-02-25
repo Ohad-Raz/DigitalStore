@@ -1,9 +1,50 @@
-import React from 'react'
+// OrdersActions.js
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { APIBaseUrl } from "../../config";
+import { UserContext } from "../../context/UserContext";
+import OrdersCard from "./OrdersCard";
+import "./OrdersActions.css"
 
 function OrdersActions() {
-  return (
-    <div>OrdersActions</div>
-  )
+  const [orders, setOrders] = useState([]);
+  const [error, setError] = useState(null);
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const authorizationToken = localStorage.getItem("token");
+        const response = await axios.get(`${APIBaseUrl}/orders`, {
+          headers: {
+            Authorization: `Bearer ${authorizationToken}`,
+          },
+        });
+        console.log("Fetched orders:", response.data.data);
+        setOrders(response.data.data);
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+        setError(error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
+  console.log("Orders:", orders);
+
+  return (<div>   <h2>Orders</h2>
+    <div className="OrdersContainer">
+   
+      {Array.isArray(orders) &&
+        orders.map((order) => (
+          <div key={order._id}>
+            <OrdersCard order={order} />
+          </div>
+        ))}
+      {error && <p>Error fetching orders: {error.message}</p>}
+    </div></div>
+  );
 }
 
-export default OrdersActions
+export default OrdersActions;

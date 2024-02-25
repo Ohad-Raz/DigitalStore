@@ -1,0 +1,22 @@
+.ordersCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 25rem;
+}
+
+.sectionHeader {
+  cursor: pointer;
+}
+
+.sectionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 3s ease; /* Add transition for height */
+}
+
+.sectionContent.expanded {
+  max-height: 1000px; /* Adjust as needed */
+  transition: max-height 3s ease; /* Add transition for height */
+}

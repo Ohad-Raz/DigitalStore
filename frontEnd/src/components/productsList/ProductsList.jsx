@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { APIBaseUrl } from "../../config";
 import CatalogCard from "../productsComponents/CatalogCard";
-import "./ProductList.css"
+import "./ProductsList.css"
 
 function ProductsList() {
   const [products, setProducts] = useState([]);

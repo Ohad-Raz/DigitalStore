@@ -65,7 +65,7 @@ const NavBar = () => {
               {/* <Nav.Link href="/auth">Auth</Nav.Link> */}
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
               <Nav.Link href="/favorites">Favorites</Nav.Link>
-              <Nav.Link href="/feed">Feed</Nav.Link>
+              <Nav.Link href="/catalog">Catalog</Nav.Link>
               <Nav.Link href="/orders">Orders</Nav.Link>
               {/* <Nav.Link href="/profile">Profile</Nav.Link> */}
               

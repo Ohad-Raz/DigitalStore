@@ -12,7 +12,7 @@ import { ThemeContext } from "./context/Theme";
 import Auth from "./pages/auth/Auth";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Favorites from "./pages/favorites/Favorites";
-import Feed from "./pages/feed/Feed";
+import Catalog from "./pages/catalog/Catalog";
 import Home from "./pages/home/Home";
 import Orders from "./pages/orders/Orders";
 import Profile from "./pages/profile/Profile";
@@ -72,7 +72,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/feed" element={<Feed />} />
+          <Route path="/catalog" element={<Catalog />} />
           <Route path="/home" element={<Home />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/profile" element={<Profile />} />

@@ -266,15 +266,16 @@ function ProductActions() {
             setNewProductData({ ...newProductData, price: e.target.value })
           }
         />
-                <input
-          type="text"
-          placeholder="currency"
-          name="currency"
+     <select
           value={newProductData.currency}
           onChange={(e) =>
             setNewProductData({ ...newProductData, currency: e.target.value })
           }
-        />
+        >
+          <option value="USD">$ (USD)</option>
+          <option value="ILS">&#8362; (ILS)</option>
+          <option value="EUR">€ (EUR)</option>
+        </select>
         <button type="submit">Add Product</button>
       </form>
 

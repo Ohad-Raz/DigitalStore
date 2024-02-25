@@ -2,10 +2,10 @@ import React from 'react'
 import ProductsList from '../../components/productsList/ProductsList'
 
 
-function Feed() {
+function Catalog() {
   return (
     <div><ProductsList/></div>
   )
 }
 
-export default Feed
+export default Catalog
