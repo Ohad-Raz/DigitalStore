@@ -37,14 +37,16 @@ function Orders() {
         orders.map((order) => (
          
           <div key={order._id}>
-          
+            <p>Order ID: {order._id ? order._id : "N/A"}</p>
              <h5>Products</h5>
           <div>
             {order.products.map((product) => (
               <div key={product.item._id}>
-                <p>Name: {product.item.name}</p>
+                <p>Name: {product.item ? product.item.name : "N/A"}</p>
+
                 <p>Quantity: {product.quantity}</p>
-                <p> Price per products: {product.item.price * product.quantity} {product.item.currency}</p>
+                <p>Price per product: {product.item ? product.item.price * product.quantity : "N/A"} {product.item ? product.item.currency : ""}</p>
+
               </div>
             ))}
             {/* Display currency value and total price */}

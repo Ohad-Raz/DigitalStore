@@ -127,8 +127,8 @@ function CheckoutForm() {
     <input type="text" id="shippingStreet2" name="shippingStreet2" placeholder="Address 2" onChange={handleShippingAddressChange} />
   </div>
   <div>
-    <label htmlFor="houseNumber2">House Number</label><br/>
-    <input type="text" id="houseNumber2" name="houseNumber2" placeholder="House Name/Number2" onChange={handleShippingAddressChange} required />
+    <label htmlFor="houseNumber2">House Number 2</label><br/>
+    <input type="text" id="houseNumber2" name="houseNumber2" placeholder="House Name/Number 2" onChange={handleShippingAddressChange} required />
   </div>
 
   <h2>Contact Information</h2>
