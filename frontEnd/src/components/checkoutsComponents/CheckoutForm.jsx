@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { APIBaseUrl } from "../../config";
 import { UserContext } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 function CheckoutForm() {
   const { user } = useContext(UserContext);
@@ -13,6 +14,8 @@ function CheckoutForm() {
   const [productsInCart, setProductsInCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const navigate = useNavigate();
+  
   useEffect(() => {
     fetchProductsInCart();
   }, []);
@@ -59,6 +62,7 @@ function CheckoutForm() {
   };
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
   
     // Map productsInCart to the required structure
@@ -85,6 +89,7 @@ function CheckoutForm() {
     } catch (error) {
       console.error('Error completing checkout:', error);
     }
+    navigate('/orders');
   };
   
 
@@ -151,6 +156,7 @@ function CheckoutForm() {
     <option value="standard">Standard Shipping</option>
     <option value="express">Express Shipping</option>
   </select>
+
 
   <button type="submit">Proceed to Payment</button>
 </form>

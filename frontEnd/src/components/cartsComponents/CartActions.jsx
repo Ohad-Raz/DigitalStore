@@ -4,7 +4,7 @@ import axios from 'axios';
 import CartCard from './CartCard';
 import { APIBaseUrl } from '../../config';
 import { UserContext } from '../../context/UserContext';
-import "./CartActions.css"
+import styles from "./CartActions.module.css"
 
 function CartActions() {
   const [cart, setCart] = useState([]);
@@ -58,7 +58,6 @@ function CartActions() {
           },
         });
       } else {
-        // If quantity is 0 or less, call removeFromCart
         await removeFromCart(productId);
       }
       fetchCart();
@@ -68,8 +67,7 @@ function CartActions() {
   };
 
   return (
-    <div className='cartContainer'>
-      <h1>Shopping Cart</h1>
+    <div className={styles.container}>
       {cart.map((item, index) => (
         <CartCard
           key={`${item.productId}-${index}`}

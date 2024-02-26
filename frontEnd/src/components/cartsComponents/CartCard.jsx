@@ -1,41 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./CartCard.css"
+import styles from "./CartCard.module.css"
 
 function CartCard({ item, removeFromCart, updateCartItem }) {
-  // Add a check to ensure item is not null or undefined
   if (!item || !item.item) {
     return <div>Loading...</div>;
   }
 
-  const { item: productItem, quantity } = item;
+  const { item: product, quantity } = item;
 
   const handleRemoveFromCart = () => {
-    removeFromCart(productItem._id);
+    removeFromCart(product._id);
   };
 
   const handleUpdateQuantity = (newQuantity) => {
-    updateCartItem(productItem._id, newQuantity);
+    updateCartItem(product._id, newQuantity);
   };
 
   return (
-    <div className="cartCard">
-      <Link to={`/product/${productItem._id}`} className="productLink">
-        <h2>{productItem.name}</h2>
-        <p>Company: {productItem.company}</p>
-        <p>Model Number: {productItem.modelNumber}</p>
-        <img className="catalogCardImg" src={productItem.src} alt={productItem.name} />
+    <div className={styles.card}>
+      <Link to={`/products/${product._id}`} className="productLink">
+        <h2>{product.name}</h2>
+        <p>Company: {product.company}</p>
+        <p>Model Number: {product.modelNumber}</p>
+        <div className={styles.imgContainer}>
+        <img className={styles.img} src={product.src} alt={product.name} />
+        </div>
         <br />
-        <p>Color: {productItem.color}</p>
-        <p>Price: {productItem.price}    {productItem.currency}</p>
+        <p>Color: {product.color}</p>
+        <p>Price: {product.price}    {product.currency}</p>
     
       </Link>
-      <div className="quantityContainer">
+      <div className={styles.quantityContainer}>
         <button onClick={() => handleUpdateQuantity(quantity - 1)}>-</button>
         <input type="number" value={quantity} onChange={(e) => handleUpdateQuantity(parseInt(e.target.value))} />
         <button onClick={() => handleUpdateQuantity(quantity + 1)}>+</button>
       </div>
-      <button onClick={handleRemoveFromCart}>Remove from Cart</button>
+      <button className={styles.button} onClick={handleRemoveFromCart}>Remove from Cart</button>
     </div>
   );
 }

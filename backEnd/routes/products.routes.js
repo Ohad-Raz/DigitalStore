@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 // const { Product } = require("../models/productCard.model");
-const { auth } = require("../middlewares/auth");
+const { auth, authorize } = require("../middlewares/auth");
 const {
   addProduct,
   getProducts,
@@ -14,12 +14,12 @@ router.get("/", getProducts);
 
 router.get("/:id", getSingleProduct);
 
-router.post("/", auth, addProduct);
+router.post("/", auth,authorize(["admin"]), addProduct);
 
-router.patch("/:id", auth, updateProducts);
+router.patch("/:id", auth,authorize(["admin"]), updateProducts);
 
 // router.put("/:id" );
 
-router.delete("/:id", auth, deleteProducts);
+router.delete("/:id", auth, authorize(["admin"]),deleteProducts);
 
 module.exports = router;

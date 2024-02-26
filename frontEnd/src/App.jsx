@@ -70,7 +70,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/auth" element={<Auth />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/home" element={<Home />} />
@@ -78,12 +78,19 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route path="/contact" element={<Contact/>} />
-          
-          <Route path="/checkouts" element={<Checkouts/>} />
 
+          <Route path="/checkouts" element={<Checkouts/>} />
           <Route path="/products/:productId" element={<SingleProduct />} />
           <Route path="*" element={<NotFound />} />
+             {/* Protect Dashboard route based on user role */}
+        {user && user.role === 'admin' ? (
+          <Route path="/dashboard" element={<Dashboard />} />
+        ) : (
+          <Route path="/dashboard" element={<Navigate to="/home" replace />} />
+        )}
         </Routes>
+
+
       </Router>
     </div>
   );

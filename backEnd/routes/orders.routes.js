@@ -5,10 +5,9 @@ const {
   getUserOrders,
   updateOrder,
 } = require("../controllers/orders.controller");
-const { auth } = require("../middlewares/auth");
-
-router.post("/", auth, createOrder);
-router.get("/", auth, getUserOrders);
-router.patch("/:orderId", auth, updateOrder);
+const { auth, authorize } = require("../middlewares/auth");
+router.post("/", auth,authorize(["admin","client","contractor"]), createOrder);
+router.get("/", auth, authorize(["admin","client","contractor"]), getUserOrders);
+router.patch("/:orderId", auth,authorize(["admin"]), updateOrder);
 
 module.exports = router;

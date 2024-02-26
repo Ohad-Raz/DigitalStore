@@ -63,7 +63,9 @@ const NavBar = () => {
             <Nav className="me-auto navbar-light">
               {/* <Nav.Link href="/home">Home</Nav.Link> */}
               {/* <Nav.Link href="/auth">Auth</Nav.Link> */}
-              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+              {user && user.role === "admin" && (
+                <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+              )}
               <Nav.Link href="/favorites">Favorites</Nav.Link>
               <Nav.Link href="/catalog">Catalog</Nav.Link>
               <Nav.Link href="/orders">Orders</Nav.Link>

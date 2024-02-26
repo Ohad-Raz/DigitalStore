@@ -1,6 +1,6 @@
 import React from "react";
-import "./ProductCard.css";
 import { Link } from "react-router-dom";
+import styles from "./ProductCard.module.css";
 
 function ProductCard({ product }) {
   // Check if product is undefined before accessing its properties
@@ -8,12 +8,16 @@ function ProductCard({ product }) {
     return <div>No product data available</div>;
   }
   return (
-    <div className="productCard">
+    <div className={styles.card}>
+      <div className={styles.infoContainer}>
       <h2>{product.name}</h2>
       <p>Category: {product.category}</p>
       <p>Company: {product.company}</p>
       <p>Model Number: {product.modelNumber}</p>
-      <img className="productCardImg" src={product.src} />
+      </div>
+      <div className={styles.imgContainer}>
+      <img className={styles.img}  src={product.src} />
+      </div>
       <br />
       <Link to={product.linkToPage}>Link to real store Page</Link>
       <p>Color: {product.color}</p>

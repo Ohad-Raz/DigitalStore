@@ -31,7 +31,7 @@ function OrdersCard({ order }) {
               <div key={product.item._id}>
                 <p>Name: {product.item ? product.item.name : "N/A"}</p>
                 <p>Quantity: {product.quantity}</p>
-                <p>Price per product: {product.item ? product.item.price * product.quantity : "N/A"} {product.item ? product.item.currency : ""}</p>
+                <p>Price per products: {product.item ? product.item.price * product.quantity : "N/A"} {product.item ? product.item.currency : ""}</p>
               </div>
             ))}
             <div>
@@ -54,14 +54,24 @@ function OrdersCard({ order }) {
       <div className={`sectionContent ${isShippingAddressExpanded ? 'expanded' : 'collapsed'}`}>
         {isShippingAddressExpanded && (
           <div>
-            <p>Name: {order.shippingAddress.shippingName}</p>
+         <p>Name: {order.shippingAddress.shippingName}</p>
+            {order.shippingAddress.companyName && (
+    <p>Company Name: {order.shippingAddress.companyName}</p>
+  )}
             <p>Country: {order.shippingAddress.shippingCountry}</p>
             <p>Street: {order.shippingAddress.shippingStreet}</p>
             <p>City: {order.shippingAddress.shippingCity}</p>
             <p>Postal Code/Zip: {order.shippingAddress.shippingPostalCode}</p>
-            <p>Address 2: {order.shippingAddress.shippingStreet2}</p>
-            <p>House Number: {order.shippingAddress.houseNumber}</p>
-            <p>House Number 2: {order.shippingAddress.houseNumber2}</p>
+            <p>Address: {order.shippingAddress.shippingStreet}</p>
+              <p>House Number: {order.shippingAddress.houseNumber}</p>
+              {order.shippingAddress.shippingStreet2 && (
+    <p>Address 2: {order.shippingAddress.shippingStreet2}</p>
+  )}
+  {order.shippingAddress.houseNumber2 && (
+    <p>House Number 2: {order.shippingAddress.houseNumber2}</p>
+  )}
+              {/* <p>Address 2: {order.shippingAddress.shippingStreet2}</p>
+            <p>House Number 2: {order.shippingAddress.houseNumber2}</p> */}
           </div>
         )}
       </div>
@@ -73,7 +83,9 @@ function OrdersCard({ order }) {
           <div>
             <p>Email: {order.contactInfo.email}</p>
             <p>Phone: {order.contactInfo.phone}</p>
-            <p>House/Company Phone Number: {order.contactInfo.housePhone}</p>
+            {order.contactInfo.housePhone && (
+    <p>House/Company Phone: {order.contactInfo.housePhone}</p>
+  )}
           </div>
         )}
       </div>

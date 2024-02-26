@@ -1,0 +1,44 @@
+.ordersCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+  margin: 2rem; 
+}
+
+.card {
+  flex: 0 0 calc(33.33% - 4rem); 
+  margin: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.quantityContainer {
+  display: flex;
+}
+
+.button{
+
+  min-height: 95%;
+}
+
+.imgContainer {
+}
+
+.img {
+  max-height: 15rem;
+}
+
+@media (max-width: 1000px) {
+  .card {
+    flex-basis: calc(50% - 4rem); /* Set width to one-half minus margin */
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex-basis: calc(100% - 4rem); /* Set width to full width minus margin */
+  }
+}

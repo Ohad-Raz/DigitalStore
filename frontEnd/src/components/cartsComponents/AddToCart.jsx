@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import axios from 'axios';
 import { APIBaseUrl } from "../../config";
 import { UserContext } from '../../context/UserContext';
+import styles from './AddToCart.module.css';
 
 function AddToCart({ productId }) {
   const { user } = useContext(UserContext);
@@ -25,7 +26,7 @@ function AddToCart({ productId }) {
   
 
   return (
-    <button onClick={addToCart}>
+    <button className={styles.button} onClick={addToCart}>
       Add to Cart
     </button>
   );

@@ -27,4 +27,17 @@ const auth = (req, res, next) => {
     return res.status(401).json({ error: "unauthorized3" });
   }
 };
-module.exports = { auth };
+
+
+const authorize = (roles)=>{
+  console.log({roles});
+  return (req, res, next) => {
+    const user = req.user;
+    // if(user.role === role)return next();
+    if(roles.includes(user.role))next();
+
+    else res.status(401)
+  }
+}
+
+module.exports = { auth, authorize };
