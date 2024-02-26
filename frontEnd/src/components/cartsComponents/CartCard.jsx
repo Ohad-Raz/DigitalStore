@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./CartCard.css"
 
 function CartCard({ item, removeFromCart, updateCartItem }) {
   // Add a check to ensure item is not null or undefined
@@ -18,7 +19,7 @@ function CartCard({ item, removeFromCart, updateCartItem }) {
   };
 
   return (
-    <div className="cart-item">
+    <div className="cartCard">
       <Link to={`/product/${productItem._id}`} className="productLink">
         <h2>{productItem.name}</h2>
         <p>Company: {productItem.company}</p>
@@ -29,7 +30,7 @@ function CartCard({ item, removeFromCart, updateCartItem }) {
         <p>Price: {productItem.price}    {productItem.currency}</p>
     
       </Link>
-      <div>
+      <div className="quantityContainer">
         <button onClick={() => handleUpdateQuantity(quantity - 1)}>-</button>
         <input type="number" value={quantity} onChange={(e) => handleUpdateQuantity(parseInt(e.target.value))} />
         <button onClick={() => handleUpdateQuantity(quantity + 1)}>+</button>

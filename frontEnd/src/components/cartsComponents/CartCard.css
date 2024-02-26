@@ -1,0 +1,8 @@
+.cartCard{
+/* display: flex; */
+margin: 2rem;
+}
+
+.quantityContainer{
+  display: flex;
+}

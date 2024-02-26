@@ -4,6 +4,7 @@ import axios from 'axios';
 import CartCard from './CartCard';
 import { APIBaseUrl } from '../../config';
 import { UserContext } from '../../context/UserContext';
+import "./CartActions.css"
 
 function CartActions() {
   const [cart, setCart] = useState([]);
@@ -67,7 +68,7 @@ function CartActions() {
   };
 
   return (
-    <div>
+    <div className='cartContainer'>
       <h1>Shopping Cart</h1>
       {cart.map((item, index) => (
         <CartCard
