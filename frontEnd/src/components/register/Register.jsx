@@ -6,7 +6,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
-  const [specialty, setSpecialty] = useState('');
+  const [birthDate, setBirthDate] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -15,7 +15,7 @@ const Register = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ fullName, email, password, role, specialty }),
+        body: JSON.stringify({ fullName, email, password, role, birthDate }),
       });
       const data = await response.json();
       if (response.ok) {
@@ -35,6 +35,8 @@ const Register = () => {
       <input type="text" placeholder="Full Name" value={fullName} onChange={(e) => setFullName(e.target.value)} />
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <input type="date" placeholder="Birth Date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
+
       <select value={role} onChange={(e) => setRole(e.target.value)}>
         <option value="">Select Role</option>
         <option value="admin">Admin</option>

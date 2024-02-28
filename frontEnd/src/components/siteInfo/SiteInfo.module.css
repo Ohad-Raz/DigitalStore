@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  max-width: 50rem; /* Adjust as needed */
+  padding: 1.25rem; /* Adjust as needed */
+  text-align: center;
+}
+
+/* Borders */
+.content h1,
+.content h2 {
+  border-bottom: 2px solid #333; /* Add border to headings */
+  padding-bottom: 0.5rem; /* Adjust as needed */
+  margin-bottom: 1rem; /* Adjust as needed */
+}
+
+.content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content ul li {
+  border-bottom: 1px solid #ddd; /* Add border between list items */
+  padding: 0.75rem 0; /* Adjust as needed */
+}
+
+.content ul li:last-child {
+  border-bottom: none; /* Remove border from last list item */
+}
+
+/* Responsive settings */
+@media (max-width: 48rem) {
+  .content {
+    padding: 0.625rem; /* Adjust as needed */
+  }
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { APIBaseUrl } from "../../config";
 import CatalogCard from "../productsComponents/CatalogCard";
-import "./ProductsList.css"
+import styles from "./ProductsList.module.css";
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
@@ -22,8 +22,8 @@ function ProductsList() {
 
   return (
     <div>
-      <h2>Products</h2>
-      <div className="CatalogContainer">
+      <h2 className={styles.header} >Products</h2>
+      <div className={styles.container}>
       {products.map((product, index) => (
         <CatalogCard key={index} product={product} />
       ))}</div>

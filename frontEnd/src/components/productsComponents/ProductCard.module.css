@@ -1,12 +1,46 @@
 .img{
-  width: 35rem;
+ max-width: auto;
+ min-width: 30rem;
+ min-height: 30rem;
+ max-height: 30rem;
+
+
 
 }
 
-.card{  
+.card {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: row; /* Display children side by side */
+  justify-content: center; /* Center children horizontally */
 }
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; /* Add some space between the product info and the button */
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column; /* Stack children vertically on smaller screens */
+  }
+}
+
+.infoContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-around;
+    min-width: 35rem;
+    max-width: 35rem;
+}
+
 
 .imgContainer{
-  
+
+}
+
+.img{
+
 }

@@ -33,17 +33,17 @@ function OrdersActions() {
 
   console.log("Orders:", orders);
 
-  return (<div>   <h2>Orders</h2>
+  return (
     <div className="OrdersContainer">
    
       {Array.isArray(orders) &&
         orders.map((order) => (
           <div key={order._id}>
             <OrdersCard order={order} />
-          </div>
+           </div>
         ))}
-      {error && <p>Error fetching orders: {error.message}</p>}
-    </div></div>
+      {error && <p> <br/>No user orders yet</p>}
+    </div>
   );
 }
 

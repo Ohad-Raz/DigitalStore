@@ -18,7 +18,6 @@ function CatalogCard({ product }) {
           Price: {product.price} {product.currency}
         </p>
       </Link>
-      {/* Use the AddToCart component here */}
       <AddToCart  productId={product._id} />
     </div>
   );

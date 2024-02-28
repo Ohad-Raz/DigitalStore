@@ -5,3 +5,8 @@
   align-content: center;
   align-items: center;
 }
+
+.button{
+      display: flex;
+    justify-content: center;
+}

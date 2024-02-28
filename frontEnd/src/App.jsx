@@ -18,11 +18,10 @@ import Orders from "./pages/orders/Orders";
 import Profile from "./pages/profile/Profile";
 import ShoppingCart from "./pages/shoppingCart/ShoppingCart";
 import SingleProduct from "./pages/singleProduct/SingleProduct";
-// import SingleProductCard from "./components/productsComponents/SingleProductCard";
 import Checkouts from "./pages/checkouts/Checkouts";
 import Contact from "./pages/contact/Contact";
 
-import axios from "axios"; // Import axios
+import axios from "axios"; 
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -69,15 +68,17 @@ function App() {
           <NavBar />
         </div>
         <Routes>
+        <Route path="/" element={<Home />} />
           <Route path="/auth" element={<Auth />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route path="/contact" element={<Contact/>} />
+        <Route path="/home" element={<Home />} />
+
 
           <Route path="/checkouts" element={<Checkouts/>} />
           <Route path="/products/:productId" element={<SingleProduct />} />

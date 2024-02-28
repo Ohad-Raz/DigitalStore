@@ -9,15 +9,15 @@ function ProductCard({ product }) {
   }
   return (
     <div className={styles.card}>
+           <div className={styles.imgContainer}>
+      <img className={styles.img}  src={product.src} />
+      </div>
       <div className={styles.infoContainer}>
       <h2>{product.name}</h2>
       <p>Category: {product.category}</p>
       <p>Company: {product.company}</p>
       <p>Model Number: {product.modelNumber}</p>
-      </div>
-      <div className={styles.imgContainer}>
-      <img className={styles.img}  src={product.src} />
-      </div>
+    
       <br />
       <Link to={product.linkToPage}>Link to real store Page</Link>
       <p>Color: {product.color}</p>
@@ -29,7 +29,7 @@ function ProductCard({ product }) {
         {product.sizeDescription ? product.sizeDescription.height : "N/A"}
       </p>
       <p>Price: {product.price} {product.currency}</p>
-  
+    </div>
 
     </div>
   );

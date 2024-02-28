@@ -6,7 +6,7 @@ import { APIBaseUrl } from '../../config';
 import { UserContext } from '../../context/UserContext';
 import styles from "./CartActions.module.css"
 
-function CartActions() {
+function CartActions({ setHasItems }) { // Accept setHasItems as prop
   const [cart, setCart] = useState([]);
   const { user } = useContext(UserContext);
   const authorizationToken = localStorage.getItem('token');
@@ -22,15 +22,16 @@ function CartActions() {
           Authorization: `Bearer ${authorizationToken}`,
         },
       });
-
+  
       const { products } = response.data;
-
+  
       const cartItems = products.map(item => ({
         item: item.item,
         quantity: item.quantity
       }));
-
+  
       setCart(cartItems);
+      setHasItems(cartItems.length > 0); // Set hasItems based on whether cartItems has length greater than 0
     } catch (error) {
       console.error('Error fetching cart:', error);
     }

@@ -3,11 +3,17 @@ import axios from 'axios';
 import { APIBaseUrl } from "../../config";
 import { UserContext } from '../../context/UserContext';
 import styles from './AddToCart.module.css';
+import { useNavigate } from 'react-router-dom'; 
 
 function AddToCart({ productId }) {
   const { user } = useContext(UserContext);
   const authorizationToken = localStorage.getItem('token');
+  const navigate = useNavigate();
   const addToCart = async () => {
+    if (!user) {
+      navigate('/auth');
+      return; 
+    }
     try {
       await axios.post(
         `${APIBaseUrl}/carts/items`,

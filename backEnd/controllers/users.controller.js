@@ -27,16 +27,22 @@ const signIn = async (req, res) => {
 };
 
 const register = async (req, res) => {
-  const {role, fullName, email, password } = req.body;
+  const {role, fullName, birthDate, email, password } = req.body;
 
-  if (!fullName || !email || !password) {
+  if (!fullName || !birthDate || !email || !password) {
     return res
       .status(400)
-      .json({ error: "fullName, email, and password are required" });
+      .json({ error: "fullName, birthDate, email, and password are required" });
   }
   try {
     const hash = await bcrypt.hash(password, 10);
-    const newUser = new User({role, fullName, email, password: hash });
+    const newUser = new User({
+      role,
+      fullName,
+      birthDate: new Date(birthDate), 
+      email,
+      password: hash
+    });
     newUser.user_id = newUser._id;
     await newUser.save();
     res.status(201).json({ message: "success adding user", data: newUser });
@@ -58,11 +64,11 @@ const getUsers = async (req, res) => {
 
 const updateUser = async (req, res) => {
   const { id } = req.params;
-  const { fullName, email, password } = req.body;
+  const { fullName, birthDate, email, password } = req.body;
   try {
     const updatedUser = await User.findByIdAndUpdate(
       id,
-      { fullName, email, password },
+      { fullName, birthDate, email, password },
       { new: true }
     );
     res

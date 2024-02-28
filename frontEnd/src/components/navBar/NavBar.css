@@ -28,7 +28,7 @@
   z-index: 40;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.08);
-  position: fixed;
+  /* position: fixed; */
   top: -80px;
   transition: 0.3s linear;
   display: flex;
@@ -76,6 +76,20 @@
     color: black;
   }
 }
+
+
+@media (max-width: 768px) {
+  .container, .container-md, .container-sm {
+    max-width: 100%;}
+    
+  .navbar-light {
+    color: #000;
+  }
+  .nav-link {
+    color: black;
+  }
+}
+
 @media (max-width: 425px) {
   .navbar-light {
     color: #000;

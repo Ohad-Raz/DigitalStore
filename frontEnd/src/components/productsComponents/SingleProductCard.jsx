@@ -10,7 +10,7 @@ function SingleProductCard({ product }) {
 <div >
       <ProductCard product={product} />
       </div>
-      <div>
+      <div className={styles.button}>
       <AddToCart productId={product._id}/>
       </div>
     </div>
