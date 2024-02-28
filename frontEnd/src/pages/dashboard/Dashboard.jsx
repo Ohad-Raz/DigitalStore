@@ -1,11 +1,11 @@
 import React from "react";
-import ProductActions from "../../components/dashboardComponents/ProductActions";
+import DashboardActions from "../../components/dashboardComponents/DashboardActions";
 
 function Dashboard() {
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Dashboard</h1>
-      <ProductActions />
+      
+      <DashboardActions />
     </div>
   );
 }

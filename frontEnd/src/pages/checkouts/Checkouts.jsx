@@ -6,7 +6,7 @@ import CheckoutForm from '../../components/checkoutsComponents/CheckoutForm';
 function Checkouts() {
   return (
     <div>
-      <h1>Checkout</h1>
+      <h2>Checkout</h2>
       <CheckoutsActions />
       <CheckoutForm/>
     </div>

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  flex-basis: 40%; /* Set a fixed width for each item */
+  padding: 1rem; /* Add padding to create space between the borders and content */
+  border: 2px solid #ccc; /* Add a solid border */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  margin: 1rem; /* Add margin to separate items */
+}
+
+.itemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch; /* Stretch items to match height */
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-evenly; /* Adjust button alignment */
+}
+
+.fields {
+  max-width: 25rem;
+}
+
+.fields p {
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .item {
+    flex-basis: 100%; /* Change to full width on smaller screens */
+  }
+
+  .itemContainer {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+}

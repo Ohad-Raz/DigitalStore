@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60%;
+  padding: 1rem; /* Add padding to create space between the borders and content */
+  border: 2px solid #ccc; /* Add a solid border */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  margin: 1rem; /* Add margin to separate items */
+}
+
+.inputField {
+  flex-basis: calc(33.33% - 1rem); /* Set the flex basis to one-third minus the margin */
+  max-height: 3.5rem; /* Set a minimum width for each input field */
+  min-width: 12rem; /* Set a minimum width for the select field */
+  margin: 0.5rem; /* Add some spacing between input fields */
+  border-radius: 2px; /* Add border radius for rounded corners */
+
+}
+
+.selectField {
+  flex-basis: calc(33.33% - 1rem); /* Set the flex basis to one-third minus the margin */
+  min-width: 12rem; /* Set a minimum width for the select field */
+  margin: 0.5rem; /* Add some spacing between input fields */
+}
+
+button {
+  margin-top: 0.5rem; /* Add some spacing between the inputs and the button */
+}
+
+.header{
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+}

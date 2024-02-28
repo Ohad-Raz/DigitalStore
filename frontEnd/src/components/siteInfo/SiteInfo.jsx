@@ -5,7 +5,7 @@ function SiteInfo() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1>About RODOV CENTER ELECTRICAL BUILDING & INDUSTRIAL PRODUCTS</h1>
+        <h2>About RODOV CENTER ELECTRICAL BUILDING & INDUSTRIAL PRODUCTS</h2>
         <p>Welcome to RODOV CENTER, your premier destination for electrical, electronic, and industrial products. With a rich history and a commitment to excellence, we strive to meet the diverse needs of our customers in the electrical and industrial sectors.</p>
         
         <h2>Our History</h2>

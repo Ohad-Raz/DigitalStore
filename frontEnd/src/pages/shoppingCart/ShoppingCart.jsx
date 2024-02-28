@@ -8,7 +8,7 @@ function ShoppingCart() {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Shopping Cart</h1>
+      <h2 style={{ textAlign: 'center' }}>Shopping Cart</h2>
       <div>
         <CartActions setHasItems={setHasItems} />
         {hasItems ? (

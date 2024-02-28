@@ -6,13 +6,17 @@
 }
 
 .card {
-  flex: 0 0 calc(33.33% - 4rem); 
+  flex: 0 0 calc(31% - 4rem); 
   margin: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   align-items: center; 
+  padding: 0.4rem; /* Add padding to create space between the borders and content */
+  border: 2px solid #ccc; /* Add a solid border */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  margin: 1.5rem; /* Add margin to separate items */
 }
 
 .quantityContainer {

@@ -3,7 +3,8 @@ import OrdersActions from '../../components/ordersComponents/OrdersActions'
 
 function Orders() {
   return (
-    <div><h2 style={{ textAlign: 'center' }}>Orders</h2>
+    <div>
+      <h2 style={{ textAlign: 'center' }}>Orders</h2>
     <div>
 <OrdersActions/>
     </div>

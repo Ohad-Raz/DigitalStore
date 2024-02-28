@@ -4,6 +4,10 @@
   flex-wrap: wrap;
   align-items: center;
   min-width: 25rem;
+  padding: 1rem; /* Add padding to create space between the borders and content */
+  border: 2px solid #ccc; /* Add a solid border */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  margin: 1rem; /* Add margin to separate items */
 }
 
 .sectionHeader {
