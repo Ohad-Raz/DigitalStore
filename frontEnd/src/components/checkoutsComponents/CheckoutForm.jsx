@@ -3,6 +3,8 @@ import axios from 'axios';
 import { APIBaseUrl } from "../../config";
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import styles from "./CheckoutForm.module.css" 
+
 
 function CheckoutForm() {
   const { user } = useContext(UserContext);
@@ -94,71 +96,71 @@ function CheckoutForm() {
   
 
   return (
-    <div>
-<form onSubmit={handleSubmit}>
+    <div className={styles.formContainer}>
+<form className={styles.form} onSubmit={handleSubmit}>
 <h2>Shipping Information</h2>
 
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="shippingName">Full Name<span>*</span></label><br/>
     <input type="text" id="shippingName" name="shippingName" placeholder="Full Name" onChange={handleShippingAddressChange} required />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="companyName">Company Name</label><br/>
     <input type="text" id="companyName" name="companyName" placeholder="Company Name" onChange={handleContactInfoChange} />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="shippingPostalCode">Post Code/Zip<span>*</span></label><br/>
     <input type="text" id="shippingPostalCode" name="shippingPostalCode" placeholder="Post Code/Zip" onChange={handleShippingAddressChange} required />
   </div>
 
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="shippingCountry">Country<span>*</span></label><br/>
     <input type="text" id="shippingCountry" name="shippingCountry" placeholder="Country" onChange={handleShippingAddressChange} required />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="shippingCity">Town/City<span>*</span></label><br/>
     <input type="text" id="shippingCity" name="shippingCity" placeholder="Town/City" onChange={handleShippingAddressChange} required />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="shippingStreet">Address 1<span>*</span></label><br/>
     <input type="text" id="shippingStreet" name="shippingStreet" placeholder="Address 1" onChange={handleShippingAddressChange} required />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="houseNumber">House Number<span>*</span></label><br/>
     <input type="text" id="houseNumber" name="houseNumber" placeholder="House Name/Number" onChange={handleShippingAddressChange} required />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="shippingStreet2">Address 2</label><br/>
     <input type="text" id="shippingStreet2" name="shippingStreet2" placeholder="Address 2" onChange={handleShippingAddressChange} />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="houseNumber2">House Number 2</label><br/>
     <input type="text" id="houseNumber2" name="houseNumber2" placeholder="House Name/Number 2" onChange={handleShippingAddressChange} required />
   </div>
 
   <h2>Contact Information</h2>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="email">Email Address<span>*</span></label><br/>
     <input type="email" id="email" name="email" placeholder="Email Address" onChange={handleContactInfoChange} required />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="phone">Phone Number<span>*</span></label><br/>
     <input type="tel" id="phone" name="phone" placeholder="Phone Number" onChange={handleContactInfoChange} required />
   </div>
-  <div>
+ <div className={styles.inputSection}>
     <label htmlFor="housePhone">home/Company phone Number</label><br/>
     <input type="tel" id="housePhone" name="housePhone" placeholder="House/Company Number" onChange={handleContactInfoChange} />
   </div>
 
   <h2>Shipping Method</h2>
-  <select id="shippingMethod" value={shippingMethod} onChange={handleShippingMethodChange} required>
+  <select className={styles.selectSection} id="shippingMethod" value={shippingMethod} onChange={handleShippingMethodChange} required>
     <option value="" disabled hidden>Select Shipping Method</option>
     <option value="standard">Standard Shipping</option>
     <option value="express">Express Shipping</option>
   </select>
 
-
-  <button type="submit">Proceed to Payment</button>
+<div className={styles.btnSection}>
+  <button  className={styles.btn} type="submit">Proceed to Payment</button></div>
 </form>
 
 

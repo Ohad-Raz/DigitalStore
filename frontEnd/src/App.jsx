@@ -22,6 +22,7 @@ import Checkouts from "./pages/checkouts/Checkouts";
 import Contact from "./pages/contact/Contact";
 
 import axios from "axios"; 
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -75,10 +76,11 @@ function App() {
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/shoppingcart" element={<ShoppingCart />} />
+          <Route path="/shopping-cart" element={<ShoppingCart />} />
           <Route path="/contact" element={<Contact/>} />
         <Route path="/home" element={<Home />} />
 
+        <Route path="/forgot-password" element={<ForgotPassword/>} />
 
           <Route path="/checkouts" element={<Checkouts/>} />
           <Route path="/products/:productId" element={<SingleProduct />} />

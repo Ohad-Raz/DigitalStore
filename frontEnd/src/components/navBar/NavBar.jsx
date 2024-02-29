@@ -53,7 +53,7 @@ const NavBar = () => {
       >
         <Container className={isNavOpen ? "navOpenBackground" : ""}>
           <Navbar.Brand href="/home">
-            <img src="" alt="Logo" />
+            <img src="" alt="Home" />
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
@@ -66,12 +66,12 @@ const NavBar = () => {
               {user && user.role === "admin" && (
                 <Nav.Link href="/dashboard">Dashboard</Nav.Link>
               )}
-              <Nav.Link href="/favorites">Favorites</Nav.Link>
+              {/* <Nav.Link href="/favorites">Favorites</Nav.Link> */}
               <Nav.Link href="/catalog">Catalog</Nav.Link>
               <Nav.Link href="/orders">Orders</Nav.Link>
               {/* <Nav.Link href="/profile">Profile</Nav.Link> */}
               
-              <Nav.Link href="/shoppingCart">Shopping Cart</Nav.Link>
+              <Nav.Link href="/shopping-Cart">Shopping Cart</Nav.Link>
               {/* <Nav.Link href="/contact">Contact Us</Nav.Link> */}
               {/* <Nav.Link as={Link} to="/singleproduct/:productId">Single Product</Nav.Link> */}
 
