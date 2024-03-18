@@ -2,10 +2,16 @@
   background-color: #FFFFFF;
   color: black;
 }
-.navbar-brand img {
+.navLogo{
   width: 4rem;
   height: 4rem;
 }
+.navbar a{
+color: black;
+margin: 0.26rem;
+transition: color 0.3s ease;
+}
+
 .activeNav {
   font-size: 1.4rem;
   height: 5rem;

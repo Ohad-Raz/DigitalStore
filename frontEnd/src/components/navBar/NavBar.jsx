@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import NavLink from "react-bootstrap/esm/NavLink";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../../assets/logox4-removebg.png";
 
@@ -53,28 +54,28 @@ const NavBar = () => {
         className={`NavBarDiv activeNav ${show && "hidden"}`}
       >
         <Container className={isNavOpen ? "navOpenBackground" : ""}>
-          <Navbar.Brand href="/home">
+         <Link to={"/home"}>   
             <img className="navLogo" src={logo} alt="Home" />
-          </Navbar.Brand>
+          </Link>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             onClick={handleNavToggle}
           />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto navbar-light">
-              {/* <Nav.Link href="/home">Home</Nav.Link> */}
-              {/* <Nav.Link href="/auth">Auth</Nav.Link> */}
+              {/* <Nav.Link  to={"/home">Home</Nav.Link> */}
+              {/* <Nav.Link  to={"/auth">Auth</Nav.Link> */}
               {user && user.role === "admin" && (
-                <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+                <Link  to={"/dashboard"}>Dashboard</Link>
               )}
-              {/* <Nav.Link href="/favorites">Favorites</Nav.Link> */}
-              <Nav.Link href="/catalog">Catalog</Nav.Link>
-              <Nav.Link href="/orders">Orders</Nav.Link>
-              {/* <Nav.Link href="/profile">Profile</Nav.Link> */}
+              {/* <Link  to={"/favorites">Favorites</Link> */}
+              <Link  to={"/catalog"}>Catalog</Link>
+              <Link  to={"/orders"}>Orders</Link>
+              {/* <Link  to={"/profile">Profile</Link> */}
               
-              <Nav.Link href="/shopping-Cart">Shopping Cart</Nav.Link>
-              {/* <Nav.Link href="/contact">Contact Us</Nav.Link> */}
-              {/* <Nav.Link as={Link} to="/singleproduct/:productId">Single Product</Nav.Link> */}
+              <Link  to={"/shopping-Cart"}>Shopping Cart</Link>
+              {/* <Link  to={"/contact">Contact Us</Link> */}
+              {/* <Link as={Link} to="/singleproduct/:productId">Single Product</Link> */}
 
             </Nav>
             <Nav className="ml-auto">

@@ -24,6 +24,7 @@ import { APIBaseUrl } from "./config";
 
 import axios from "axios"; 
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -101,6 +102,8 @@ function App() {
 
 
       </Router>
+
+    {/* <Footer/> */}
     </div>
   );
 }
