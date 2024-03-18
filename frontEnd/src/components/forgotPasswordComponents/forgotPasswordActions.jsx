@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './ForgotPasswordActions.module.css'; // Import CSS styles
+import { APIBaseUrl } from '../../config';
 
 const ForgotPasswordActions = () => {
   const [email, setEmail] = useState('');
@@ -19,7 +20,7 @@ const ForgotPasswordActions = () => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:4000/api/v1/users/forgot-password',
+      url: `${APIBaseUrl}/users/forgot-password`,
       headers: { 
         'Content-Type': 'application/json'
       },

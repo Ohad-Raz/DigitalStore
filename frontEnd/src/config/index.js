@@ -1,3 +1,3 @@
-const APIBaseUrl = 'http://localhost:4000/api/v1';
+const APIBaseUrl = 'https://digitalstore-hdui.onrender.com/api/v1';
 
 export { APIBaseUrl };

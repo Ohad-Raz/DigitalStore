@@ -18,7 +18,7 @@ export default function ResetPasswordActions() {
         e.preventDefault();
         try {
             const response = await axios.patch(
-                `http://localhost:4000/api/v1/reset-password/${tokenId}`,
+                `${APIBaseUrl}/reset-password/${tokenId}`,
                 {
                     password: password,
                     passwordConfirm: passwordConfirm

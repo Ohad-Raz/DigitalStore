@@ -1,13 +1,12 @@
 import React from 'react'
-
+// import workInProgress from './workInProgress.png';
+import workInProgress from '../../assets/workInProgress.png'; 
+import styles from "./Contact.module.css"
 
 function Contact() {
   return (
-<div className='ContactContainer'>
-{/* <img className="workInProgressContact" src="../../../assets/workInProgress.png" alt="work in progress" /> */}
-<img className="workInProgressContact" src="/workInProgress.png. " alt="work in progress" />
-
-
+<div className={styles.contactContainer}>
+<img className={styles.workInProgress}  src={workInProgress} alt="work in progress" />
 </div>
 );
 }

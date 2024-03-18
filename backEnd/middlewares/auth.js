@@ -31,7 +31,7 @@ const auth = (req, res, next) => {
 
 
 const authorize = (roles)=>{
-  console.log({roles});
+  // console.log({roles});
   return (req, res, next) => {
     const user = req.user;
     // if(user.role === role)return next();

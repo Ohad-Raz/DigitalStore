@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
 import { UserContext } from "../../context/UserContext";
+import { APIBaseUrl } from "../../config";
 
 const defaultTheme = createTheme();
 
@@ -30,7 +31,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:4000/api/v1/users/register",
+        `${APIBaseUrl}/users/register`,
         {
           method: "POST",
           headers: {

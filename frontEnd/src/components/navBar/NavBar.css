@@ -3,7 +3,8 @@
   color: black;
 }
 .navbar-brand img {
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
 }
 .activeNav {
   font-size: 1.4rem;
@@ -38,6 +39,8 @@
 .container {
   margin-left: 0rem;
 }
+
+
 .navOpenBackground {
   background-color: #F0E5D3;
 }

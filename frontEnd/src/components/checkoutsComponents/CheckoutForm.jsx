@@ -3,8 +3,18 @@ import axios from 'axios';
 import { APIBaseUrl } from "../../config";
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
-import styles from "./CheckoutForm.module.css" 
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import ShippingInformation from './ShippingInformation';
+import ContactInformation from './ContactInformation';
+import ShippingMethod from './ShippingMethod.jsx';
+import styles from "./CheckoutForm.module.css";
 
+const steps = ['Shipping Information', 'Contact Information', 'Shipping Method'];
 
 function CheckoutForm() {
   const { user } = useContext(UserContext);
@@ -15,9 +25,9 @@ function CheckoutForm() {
   const [shippingMethod, setShippingMethod] = useState('');
   const [productsInCart, setProductsInCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-
+  const [activeStep, setActiveStep] = useState(0); 
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     fetchProductsInCart();
   }, []);
@@ -37,7 +47,6 @@ function CheckoutForm() {
     }
   };
   
-
   const calculateTotalPrice = (cartItems) => {
     if (!Array.isArray(cartItems)) {
       setTotalPrice(0);
@@ -64,10 +73,7 @@ function CheckoutForm() {
   };
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
-  
-    // Map productsInCart to the required structure
     const mappedProducts = productsInCart.map(item => ({ item: item.item._id, quantity: item.quantity }));
   
     const checkoutData = {
@@ -87,86 +93,67 @@ function CheckoutForm() {
         },
       });
       console.log('Checkout successful:', response.data);
-      // You can redirect the user to the orders page or display a success message here
+      navigate('/orders');
     } catch (error) {
       console.error('Error completing checkout:', error);
     }
-    navigate('/orders');
   };
-  
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
   return (
-    <div className={styles.formContainer}>
-<form className={styles.form} onSubmit={handleSubmit}>
-<h2>Shipping Information</h2>
-
- <div className={styles.inputSection}>
-    <label htmlFor="shippingName">Full Name<span>*</span></label><br/>
-    <input type="text" id="shippingName" name="shippingName" placeholder="Full Name" onChange={handleShippingAddressChange} required />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="companyName">Company Name</label><br/>
-    <input type="text" id="companyName" name="companyName" placeholder="Company Name" onChange={handleContactInfoChange} />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="shippingPostalCode">Post Code/Zip<span>*</span></label><br/>
-    <input type="text" id="shippingPostalCode" name="shippingPostalCode" placeholder="Post Code/Zip" onChange={handleShippingAddressChange} required />
-  </div>
-
- <div className={styles.inputSection}>
-    <label htmlFor="shippingCountry">Country<span>*</span></label><br/>
-    <input type="text" id="shippingCountry" name="shippingCountry" placeholder="Country" onChange={handleShippingAddressChange} required />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="shippingCity">Town/City<span>*</span></label><br/>
-    <input type="text" id="shippingCity" name="shippingCity" placeholder="Town/City" onChange={handleShippingAddressChange} required />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="shippingStreet">Address 1<span>*</span></label><br/>
-    <input type="text" id="shippingStreet" name="shippingStreet" placeholder="Address 1" onChange={handleShippingAddressChange} required />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="houseNumber">House Number<span>*</span></label><br/>
-    <input type="text" id="houseNumber" name="houseNumber" placeholder="House Name/Number" onChange={handleShippingAddressChange} required />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="shippingStreet2">Address 2</label><br/>
-    <input type="text" id="shippingStreet2" name="shippingStreet2" placeholder="Address 2" onChange={handleShippingAddressChange} />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="houseNumber2">House Number 2</label><br/>
-    <input type="text" id="houseNumber2" name="houseNumber2" placeholder="House Name/Number 2" onChange={handleShippingAddressChange} required />
-  </div>
-
-  <h2>Contact Information</h2>
- <div className={styles.inputSection}>
-    <label htmlFor="email">Email Address<span>*</span></label><br/>
-    <input type="email" id="email" name="email" placeholder="Email Address" onChange={handleContactInfoChange} required />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="phone">Phone Number<span>*</span></label><br/>
-    <input type="tel" id="phone" name="phone" placeholder="Phone Number" onChange={handleContactInfoChange} required />
-  </div>
- <div className={styles.inputSection}>
-    <label htmlFor="housePhone">home/Company phone Number</label><br/>
-    <input type="tel" id="housePhone" name="housePhone" placeholder="House/Company Number" onChange={handleContactInfoChange} />
-  </div>
-
-  <h2>Shipping Method</h2>
-  <select className={styles.selectSection} id="shippingMethod" value={shippingMethod} onChange={handleShippingMethodChange} required>
-    <option value="" disabled hidden>Select Shipping Method</option>
-    <option value="standard">Standard Shipping</option>
-    <option value="express">Express Shipping</option>
-  </select>
-
-<div className={styles.btnSection}>
-  <button  className={styles.btn} type="submit">Proceed to Payment</button></div>
-</form>
-
-
-
-
-  </div>
+    <div className={styles.container}>
+      <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+        {steps.map((label) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+      <div className={styles.formContainer}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          {activeStep === 0 && (
+            <ShippingInformation 
+              handleShippingAddressChange={handleShippingAddressChange} 
+              handleBillingAddressChange={handleBillingAddressChange} 
+            />
+          )}
+          {activeStep === 1 && (
+            <ContactInformation 
+              handleContactInfoChange={handleContactInfoChange} 
+            />
+          )}
+          {activeStep === 2 && (
+            <ShippingMethod 
+              handleShippingMethodChange={handleShippingMethodChange} 
+              shippingMethod={shippingMethod} 
+            />
+          )}
+        </form>
+      </div>
+      <div className={styles.btnContainer}>
+        <Button
+          disabled={activeStep === 0}
+          onClick={handleBack}
+          className={styles.btn}
+        >
+          Back
+        </Button>
+        <Button
+          variant="contained"
+          onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
+          className={styles.btn}
+        >
+          {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+        </Button>
+      </div>
+    </div>
   );
 }
 

@@ -20,6 +20,7 @@ import ShoppingCart from "./pages/shoppingCart/ShoppingCart";
 import SingleProduct from "./pages/singleProduct/SingleProduct";
 import Checkouts from "./pages/checkouts/Checkouts";
 import Contact from "./pages/contact/Contact";
+import { APIBaseUrl } from "./config";
 
 import axios from "axios"; 
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
@@ -33,13 +34,15 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("http://localhost:4000/api/v1/users/init-user", {
+        .get(`${APIBaseUrl}/users/init-user`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
           if (response.status === 200) {
+            console.log(response.data);
+
             setUser(response.data);
           } else {
             throw new Error("Failed to fetch user data");
@@ -60,7 +63,10 @@ function App() {
 
   if (isLoading) {
     return <div>Loading...</div>;
+    
   }
+
+
 
   return (
     <div style={{ ...selectedTheme }}>

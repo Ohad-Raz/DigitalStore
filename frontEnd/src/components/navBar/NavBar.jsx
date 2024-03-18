@@ -6,6 +6,7 @@ import "./NavBar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import logo from "../../assets/logox4-removebg.png";
 
 const NavBar = () => {
   const { toggleTheme, selectedTheme } = useContext(ThemeContext);
@@ -53,7 +54,7 @@ const NavBar = () => {
       >
         <Container className={isNavOpen ? "navOpenBackground" : ""}>
           <Navbar.Brand href="/home">
-            <img src="" alt="Home" />
+            <img className="navLogo" src={logo} alt="Home" />
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
@@ -89,12 +90,12 @@ const NavBar = () => {
                     >
                       Sign Out
                     </button>
-                    <button
+                    <buttons
                       className={`MoonSun ${themeClass}`}
                       onClick={toggleTheme}
                     >
                       <i className={`fa-solid fa-${changeSunMoon}`}></i>
-                    </button>
+                    </buttons>
                   </div>
                 ) : (
                   <Link to={"/auth"}>Auth</Link>

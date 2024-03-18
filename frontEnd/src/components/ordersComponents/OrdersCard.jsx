@@ -64,12 +64,12 @@ function OrdersCard({ order }) {
             <p>Postal Code/Zip: {order.shippingAddress.shippingPostalCode}</p>
             <p>Address: {order.shippingAddress.shippingStreet}</p>
               <p>House Number: {order.shippingAddress.houseNumber}</p>
-              {order.shippingAddress.shippingStreet2 && (
+              {/* {order.shippingAddress.shippingStreet2 && (
     <p>Address 2: {order.shippingAddress.shippingStreet2}</p>
   )}
   {order.shippingAddress.houseNumber2 && (
     <p>House Number 2: {order.shippingAddress.houseNumber2}</p>
-  )}
+  )} */}
               {/* <p>Address 2: {order.shippingAddress.shippingStreet2}</p>
             <p>House Number 2: {order.shippingAddress.houseNumber2}</p> */}
           </div>

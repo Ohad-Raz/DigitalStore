@@ -16,6 +16,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styles from "./SignIn.module.css"
+import { APIBaseUrl } from "../../config";
 
 const defaultTheme = createTheme();
 
@@ -31,7 +32,7 @@ const SignIn = () => {
     try {
       // Your existing sign-in logic
       const response = await fetch(
-        "http://localhost:4000/api/v1/users/SignIn",
+        `${APIBaseUrl}/users/SignIn`,
         {
           method: "POST",
           headers: {
