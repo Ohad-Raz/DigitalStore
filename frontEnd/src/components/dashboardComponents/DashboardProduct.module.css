@@ -37,6 +37,25 @@
   }
 
   .itemContainer {
-    flex-direction: column; /* Stack items vertically on smaller screens */
+    /* flex-direction: column; Stack items vertically on smaller screens */
+  }
+}
+@media (max-width: 426px) {
+
+  .item {
+    max-width: 75%;
+  }
+}
+@media (max-width: 376px) {
+
+  .item {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 321px) {
+
+  .item {
+    max-width: 65%;
   }
 }
