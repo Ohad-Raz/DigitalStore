@@ -1,0 +1,14 @@
+.p-4{
+  /* margin-left: none;; */
+  
+}
+
+.container {
+  /* margin-left: none !important; */
+}
+
+.bg-dark{
+display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;}

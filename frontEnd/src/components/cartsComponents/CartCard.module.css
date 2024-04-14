@@ -1,3 +1,4 @@
+
 .ordersCard {
   display: flex;
   flex-wrap: wrap;
@@ -23,10 +24,17 @@
 }
 
 .imgContainer {
+  min-width: 25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .img {
-  max-height: 20rem;
+  max-height: 18rem;
+  /* max-width: 25rem; */
 }
 
 @media (max-width: 1000px) {

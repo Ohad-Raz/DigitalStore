@@ -1,9 +1,11 @@
 .button{
   min-width: 18rem;
+
 }
 
 
 .container{
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
