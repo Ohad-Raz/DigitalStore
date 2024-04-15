@@ -17,10 +17,22 @@
   padding: 0.4rem; /* Add padding to create space between the borders and content */
   border: 2px solid #ccc; /* Add a solid border */
   border-radius: 10px; /* Add border radius for rounded corners */
+  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #f7f8f1e1 70%);
+
 }
 
 .quantityContainer {
   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+.quantityContainer input {
+  height:  2.2rem;
+  margin: 0.1rem;
+  border-radius: 5px;
+
 }
 
 .imgContainer {
@@ -30,11 +42,15 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  border: 2px solid #0000005a;
+  background-color: white;
+  border-radius: 0.30rem;
 }
 
 .img {
   max-height: 18rem;
   /* max-width: 25rem; */
+
 }
 
 @media (max-width: 1000px) {

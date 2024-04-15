@@ -21,7 +21,7 @@ import SingleProduct from "./pages/singleProduct/SingleProduct";
 import Checkouts from "./pages/checkouts/Checkouts";
 import Contact from "./pages/contact/Contact";
 import { APIBaseUrl } from "./config";
-
+import "./App.css"
 import axios from "axios"; 
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import Footer from "./components/footer/Footer";

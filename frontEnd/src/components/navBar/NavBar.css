@@ -48,7 +48,8 @@ transition: color 0.3s ease;
 
 
 .navOpenBackground {
-  background-color: #F0E5D3;
+  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7 30%, #f7f8f1 70%);
+
 }
 .container {
   margin-top: 0rem;

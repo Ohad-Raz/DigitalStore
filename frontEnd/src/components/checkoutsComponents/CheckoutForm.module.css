@@ -16,6 +16,8 @@
   justify-content: center;
   /* flex-direction: column; */
   width:65%;
+  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7c1 30%, #f7f8f1c1 70%);
+
 }
 
 .btnContainer {

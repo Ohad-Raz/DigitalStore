@@ -9,7 +9,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import  "./Footer.css"
-
+import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <MDBFooter className='text-center' color='white' bgColor='dark'>
@@ -31,11 +31,11 @@ export default function Footer() {
             <MDBIcon fab icon='instagram' />
           </MDBBtn>
 
-          <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+          <MDBBtn outline color="light" floating className='m-1' href='https://www.linkedin.com/in/ohad-raz-470017210/' role='button'>
             <MDBIcon fab icon='linkedin-in' />
           </MDBBtn>
 
-          <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+          <MDBBtn outline color="light" floating className='m-1' href='https://github.com/Ohad-Raz' role='button'>
             <MDBIcon fab icon='github' />
           </MDBBtn>
         </section>
@@ -63,16 +63,14 @@ export default function Footer() {
         </section>
 
         <section className='mb-4'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat
-            voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam
-            sequi voluptate quas.
-          </p>
+          <p>Thank you for choosing RODOV CENTER for your electrical and industrial needs. For inquiries, orders, or assistance, please don't hesitate to  
+          <a href={"/contact"} style={{textDecoration: 'underline', color: 'white'}}> contact us</a>
+        </p>
         </section>
 
         <section className=''>
           <MDBRow>
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+            {/* <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
               <h5 className='text-uppercase'>Links</h5>
 
               <ul className='list-unstyled mb-0'>
@@ -97,9 +95,9 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-            </MDBCol>
+            </MDBCol> */}
 
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+            {/* <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
               <h5 className='text-uppercase'>Links</h5>
 
               <ul className='list-unstyled mb-0'>
@@ -124,9 +122,9 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-            </MDBCol>
+            </MDBCol> */}
 
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+            {/* <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
               <h5 className='text-uppercase'>Links</h5>
 
               <ul className='list-unstyled mb-0'>
@@ -151,9 +149,9 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-            </MDBCol>
+            </MDBCol> */}
 
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+            {/* <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
               <h5 className='text-uppercase'>Links</h5>
 
               <ul className='list-unstyled mb-0'>
@@ -178,15 +176,15 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-            </MDBCol>
+            </MDBCol> */}
           </MDBRow>
         </section>
       </MDBContainer>
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2020 Copyright:
-        <a className='text-white' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
+        © 2024 Copyright:
+        <a className='text-white' href='https://digital-store-de9c9.web.app/'>
+          OhadDigitalStore.com
         </a>
       </div>
     </MDBFooter>

@@ -11,7 +11,9 @@ function CatalogCard({ product }) {
         <p>Category: {product.category}</p>
         <p>Company: {product.company}</p>
         <p>Model Number: {product.modelNumber}</p>
+        <div className={styles.imgContainer}>
         <img className={styles.img} src={product.src} alt={product.name} />
+        </div>
         <br />
         <p>Color: {product.color}</p>
         <p>

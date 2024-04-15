@@ -5,9 +5,11 @@
 }
 
 .content {
-  max-width: 50rem; /* Adjust as needed */
+  max-width: 58rem; /* Adjust as needed */
   padding: 1.25rem; /* Adjust as needed */
   text-align: center;
+  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #f7f8f1e1 70%);
+
 }
 
 /* Borders */

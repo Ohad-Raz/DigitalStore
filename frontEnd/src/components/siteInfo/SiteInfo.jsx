@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './SiteInfo.module.css';
-
+import { Link } from 'react-router-dom';
 function SiteInfo() {
   return (
     <div className={styles.container}>
@@ -28,7 +28,8 @@ function SiteInfo() {
         <p>At RODOV CENTER, our mission is to deliver superior products and services that exceed our customers' expectations. We are committed to innovation, quality, and sustainability in everything we do.</p>
         
         <h2>Contact Us</h2>
-        <p>Thank you for choosing RODOV CENTER for your electrical and industrial needs. For inquiries, orders, or assistance, please don't hesitate to <a href="/contact">contact us</a>.</p>
+        <p>Thank you for choosing RODOV CENTER for your electrical and industrial needs. For inquiries, orders, or assistance, please don't hesitate to 
+        <Link  style={{ color: 'black'}} to={"/contact"}> contact us</Link>.</p>
       </div>
     </div>
   );

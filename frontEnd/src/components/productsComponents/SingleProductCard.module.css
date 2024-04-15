@@ -4,9 +4,14 @@
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
+  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #f7f8f1e1 70%);
+max-width: 85rem;
+min-height: 40rem;
+  
 }
 
 .button{
+  margin-top: 2rem;
       display: flex;
     justify-content: center;
 }

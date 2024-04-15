@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
+  
 }
 
 .item {
@@ -9,6 +10,8 @@
   border: 2px solid #ccc; /* Add a solid border */
   border-radius: 10px; /* Add border radius for rounded corners */
   margin: 1rem; /* Add margin to separate items */
+  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #f7f8f1e1 70%);
+
 }
 
 .itemContainer {
@@ -16,6 +19,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch; /* Stretch items to match height */
+  
 }
 
 .buttonsContainer {

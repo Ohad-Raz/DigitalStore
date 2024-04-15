@@ -17,6 +17,10 @@
   border: 2px solid #ccc; /* Add a solid border */
   border-radius: 10px; /* Add border radius for rounded corners */
   margin: 1rem; /* Add margin to separate items */
+  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #f7f8f1e1 70%);
+  
+
+
 }
 
 .quantityContainer {
@@ -32,10 +36,20 @@
 }
 
 .imgContainer {
+  border: 2px solid #0000005a;
+  background-color: white;
+  border-radius: 0.30rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  min-width: 18rem;
 }
 
 .img {
   max-height: 15rem;
+  
 }
 
 @media (max-width: 1000px) {

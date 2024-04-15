@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import SingleProductCard from "../../components/productsComponents/SingleProductCard";
 import { APIBaseUrl } from "../../config";
+import styles from "./SingleProduct.module.css";
 
 function SingleProduct() {
   const { productId } = useParams();
@@ -22,7 +23,7 @@ function SingleProduct() {
   }, [productId]);
 
   return (
-    <div>
+    <div className={styles.container}>
       {product ? (
         <SingleProductCard product={product} />
       ) : (
