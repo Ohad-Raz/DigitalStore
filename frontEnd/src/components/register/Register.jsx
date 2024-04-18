@@ -15,11 +15,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
 import { UserContext } from "../../context/UserContext";
 import { APIBaseUrl } from "../../config";
-import styles from "./Register.module.css"
+import styles from "./Register.module.css";
+import { useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
-const Register = () => {
+const Register = ({ onRegistrationSuccess }) => { // Receive onRegistrationSuccess function as prop
   const { setUser } = useContext(UserContext);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -28,20 +29,8 @@ const Register = () => {
   const [birthDate, setBirthDate] = useState("");
   const [error, setError] = useState("");
 
-  // blur date 
+  const navigate = useNavigate();
 
-  // const [isInputClicked, setIsInputClicked] = useState(false);
-
-  // const handleInputClick = () => {
-  //   setIsInputClicked(true);
-  // };
-
-  // const handleInputBlur = () => {
-  //   setIsInputClicked(false);
-  // };
-
-
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -60,7 +49,8 @@ const Register = () => {
         const { user } = data;
         setUser(user);
         setError("");
-        console.log(user);
+        onRegistrationSuccess(); // Call the function to indicate successful registration
+        navigate("/auth"); // Redirect to the sign-in page
       } else {
         throw new Error(data.error);
       }
@@ -152,24 +142,7 @@ const Register = () => {
                   onChange={(e) => setBirthDate(e.target.value)}
                 />
               </Grid>
-                 {/* <Grid item xs={12}>
-      <div className={`${styles.datePicker} ${isInputClicked ? styles.labelVisible : ''}`}>
-        <label htmlFor="birthDate" className={styles.dateLabel}>
-          Birth Date
-        </label>
-        <TextField
-          required
-          fullWidth
-          name="birthDate"
-          type="date"
-          id="birthDate"
-          value={birthDate}
-          onChange={(e) => setBirthDate(e.target.value)}
-          onClick={handleInputClick}
-          onBlur={handleInputBlur}
-        />
-      </div>
-    </Grid> */}
+         
               <Grid item xs={12}>
                 <FormControlLabel
                   control={

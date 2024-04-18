@@ -36,7 +36,7 @@ function OrdersActions() {
   return (
     <div className="OrdersContainer">
    
-      {Array.isArray(orders) &&
+      {Array.isArray(orders) && 
         orders.map((order) => (
           <div key={order._id}>
             <OrdersCard order={order} />

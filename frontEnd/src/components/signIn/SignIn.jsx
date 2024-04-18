@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -25,6 +25,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // Use useNavigate hook to navigate
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,6 +50,9 @@ const SignIn = () => {
         console.log(data);
         console.log(token);
         console.log(user);
+
+        navigate("/catalog"); // Navigate to catalog after successful sign-in
+
       } else {
         throw new Error(data.error);
       }
