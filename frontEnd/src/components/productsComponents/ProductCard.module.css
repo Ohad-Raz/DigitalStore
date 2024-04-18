@@ -1,8 +1,9 @@
 .img{
+  margin: 1rem;
  max-width: auto;
- min-width: 30rem;
- min-height: 30rem;
- max-height: 30rem;
+ min-width: 28rem;
+ min-height: 28rem;
+ max-height: 28rem;
  border: 2px solid #0000005a;
  background-color: white;
  border-radius: 0.30rem;
@@ -30,7 +31,31 @@
   .card {
     flex-direction: column; /* Stack children vertically on smaller screens */
   }
+  .imgContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .img{
+    max-width: auto;
+    min-width: 25rem;
+    min-height: 25rem;
+    max-height: 25rem;
+  }
 }
+@media (max-width: 425px) {
+
+  .img{
+    max-width: auto;
+    min-width: 16rem;
+    min-height: 16rem;
+    max-height: 16rem;
+  }
+}
+
 
 .infoContainer{
     display: flex;

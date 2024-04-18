@@ -1,9 +1,10 @@
 import React from 'react'
 import OrdersActions from '../../components/ordersComponents/OrdersActions'
+import styles from "./Orders.module.css"
 
 function Orders() {
   return (
-    <div>
+    <div className={styles.ordersContainer}>
       <h2 style={{ textAlign: 'center' }}>Orders</h2>
     <div>
 <OrdersActions/>

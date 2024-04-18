@@ -44,6 +44,7 @@ transition: color 0.3s ease;
 }
 .container {
   margin-left: 0rem;
+  max-width: 94vw;
 }
 
 
@@ -64,7 +65,8 @@ transition: color 0.3s ease;
   transform: scale(1.2);
 }
 .AuthDivNav {
-  margin-right: -5.5rem;
+  /* makes the auth overflow x go out */
+  margin-right: -1.5rem;
 }
 .SignOutBtn {
   margin-right: 1rem;

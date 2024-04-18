@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
 import { UserContext } from "../../context/UserContext";
 import { APIBaseUrl } from "../../config";
+import styles from "./Register.module.css"
 
 const defaultTheme = createTheme();
 
@@ -27,6 +28,20 @@ const Register = () => {
   const [birthDate, setBirthDate] = useState("");
   const [error, setError] = useState("");
 
+  // blur date 
+
+  // const [isInputClicked, setIsInputClicked] = useState(false);
+
+  // const handleInputClick = () => {
+  //   setIsInputClicked(true);
+  // };
+
+  // const handleInputBlur = () => {
+  //   setIsInputClicked(false);
+  // };
+
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -113,8 +128,9 @@ const Register = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
+             { /*//!no user role in front end option*/}
+              {/* <Grid item xs={12}> */}
+                {/* <TextField
                   required
                   fullWidth
                   name="role"
@@ -122,9 +138,9 @@ const Register = () => {
                   id="role"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
+                /> */}
+              {/* </Grid> */}
+              <Grid className={styles.datePicker} item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -136,6 +152,24 @@ const Register = () => {
                   onChange={(e) => setBirthDate(e.target.value)}
                 />
               </Grid>
+                 {/* <Grid item xs={12}>
+      <div className={`${styles.datePicker} ${isInputClicked ? styles.labelVisible : ''}`}>
+        <label htmlFor="birthDate" className={styles.dateLabel}>
+          Birth Date
+        </label>
+        <TextField
+          required
+          fullWidth
+          name="birthDate"
+          type="date"
+          id="birthDate"
+          value={birthDate}
+          onChange={(e) => setBirthDate(e.target.value)}
+          onClick={handleInputClick}
+          onBlur={handleInputBlur}
+        />
+      </div>
+    </Grid> */}
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
@@ -153,13 +187,13 @@ const Register = () => {
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
+            {/* <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="SignIn" variant="body2">
                   {"Already have an account? Sign in"}
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
             {error && (
               <Alert severity="error" sx={{ mt: 2 }}>
                 {error}

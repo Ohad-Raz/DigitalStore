@@ -1,0 +1,12 @@
+.datePicker {
+  position: relative;
+}
+
+.datePicker input[type="date"] {
+  color: rgba(0, 0, 0, 0); /* Black color with 0 opacity */
+  transition: color 0.3s ease; /* Smooth transition for opacity change */
+}
+
+.datePicker input[type="date"]:focus {
+  color: rgba(0, 0, 0, 1); /* Black color with 100% opacity when focused */
+}

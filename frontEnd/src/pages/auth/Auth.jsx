@@ -11,7 +11,7 @@ function Auth() {
   };
 
   return (
-    <div>
+    <div className={styles.authContainer}>
      
       {showSignIn ? <SignIn /> : <Register />}
       <div className={styles.registerSignin}>

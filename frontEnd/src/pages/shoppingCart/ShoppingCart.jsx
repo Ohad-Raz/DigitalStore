@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import CartActions from "../../components/cartsComponents/CartActions";
 import CheckOutBtn from "../../components/checkoutsComponents/CheckoutBtn";
 import { Link } from "react-router-dom";
+import styles from "./ShoppingCart.module.css"
 
 function ShoppingCart() {
   const [hasItems, setHasItems] = useState(false);
 
   return (
-    <div>
+    <div className={styles.cartContainer}>
       <h2 style={{ textAlign: 'center' }}>Shopping Cart</h2>
       <div>
         <CartActions setHasItems={setHasItems} />

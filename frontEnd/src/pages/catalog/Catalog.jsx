@@ -1,10 +1,11 @@
 import React from 'react'
 import ProductsList from '../../components/productsList/ProductsList'
+import styles from "./Catalog.module.css"
 
 
 function Catalog() {
   return (
-    <div><ProductsList/></div>
+    <div className={styles.catalogContainer}><ProductsList/></div>
   )
 }
 
