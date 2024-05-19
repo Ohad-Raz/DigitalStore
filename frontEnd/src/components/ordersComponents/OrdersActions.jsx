@@ -42,7 +42,7 @@ function OrdersActions() {
           </div>
         ))
       ) : (
-        <p>{error ? "Error fetching orders" : "No user orders yet"} add them from <Link style={{ color: 'black' }} to="/shopping-Cart">here</Link></p>
+        <p>{error ? "Error fetching orders" : "No user orders yet,"} add them from <Link style={{ color: 'black' }} to="/shopping-Cart">here</Link></p>
       )}
     </div>
   );
