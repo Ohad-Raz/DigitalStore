@@ -21,6 +21,17 @@
   
 }
 
+.card a {
+  color: #191301;
+  transition: color 0.25s ease;
+  margin-bottom: 0.9rem;
+}
+
+.section:hover {
+  color: #ffc107;
+}
+
+
 .button {
   display: flex;
   justify-content: center;

@@ -6,13 +6,16 @@ import styles from "./ProductsList.module.css";
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${APIBaseUrl}/products`);
       setProducts(response.data);
+      setLoading(false); // Set loading to false after products are fetched
     } catch (error) {
       console.error("Error fetching products:", error);
+      setLoading(false); // Set loading to false even if there is an error
     }
   };
 
@@ -22,11 +25,16 @@ function ProductsList() {
 
   return (
     <div>
-      <h2 className={styles.header} >Products</h2>
+      <h2 className={styles.header}>Products</h2>
       <div className={styles.container}>
-      {products.map((product, index) => (
-        <CatalogCard key={index} product={product} />
-      ))}</div>
+        {loading ? (
+          <div className={styles.loading}>Loading products...</div>
+        ) : (
+          products.map((product, index) => (
+            <CatalogCard key={index} product={product} />
+          ))
+        )}
+      </div>
     </div>
   );
 }

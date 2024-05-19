@@ -18,13 +18,13 @@ a {
   font-weight: 500;
   color: #236393;
   text-decoration: inherit;
-  transition-delay: 0.4s;
+  transition-delay: 1s;
 
 }  
 /* need to go over the fact that the products are links right now */
 a:hover {
-  color: #236393;;
-  transition-delay: 0.4s;
+  color: #ffc107;;
+  transition-delay: 1s;
 
 }
 
@@ -51,8 +51,8 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #afdbf9cf;
-  transition-delay: 0.2s;
+  border-color:  #ffc1075d;
+  transition-delay: 0.25s ease;
 }
 button:focus,
 button:focus-visible {
