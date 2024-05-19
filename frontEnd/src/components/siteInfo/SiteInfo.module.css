@@ -6,52 +6,108 @@
   margin-bottom: 1rem;
 }
 
-.content {
-  max-width: 58rem; /* Adjust as needed */
-  padding: 1.25rem; /* Adjust as needed */
+.RodovLogo {
+  width: 1519.5px;
+}
+
+.contentText {
+  display: flex;
+  width: 100%;
+}
+
+.leftContent {
+  width: 75%;
+  text-align: left;
+  padding: 0rem 1rem; /* Adjust padding as needed */
+
+}
+
+p{
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: #22295d;
+  font-family: "League Gothic", sans-serif;
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease; /* Add smooth transition for color change */
+}
+
+h2:hover {
+  color: #d97e2e; /* Change color on hover */
+}
+
+.rightContent{
+   width: 25%;
+}
+
+.leftContent{
+  margin-top: 1rem;
   text-align: center;
-  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #f7f8f1e1 70%);
+}
+
+.content {
+  padding: 1.25rem;
+  text-align: center;
+  
+}
+
+.welcome{
+  font-size: 1.5rem;
+  font-weight: 500;
 
 }
 
 /* Borders */
 .content h1,
 .content h2 {
-  border-bottom: 2px solid #333; /* Add border to headings */
-  padding-bottom: 0.5rem; /* Adjust as needed */
-  margin-bottom: 1rem; /* Adjust as needed */
+  font-family: "League Gothic", sans-serif;
+  /* border-bottom: 2px solid #333; */
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+
 }
 
 .section ul {
   list-style-type: none;
-  padding: 0;
+  padding: 0; 
 }
 
 .section ul li {
-  border-bottom: 1px solid #ddd; /* Add border between list items */
-  padding: 0.75rem 0; /* Adjust as needed */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  border-bottom: 1px solid #ddd;
+  padding: 0.75rem 0;
+  background-color: #d97e2ed7;
+  transition: background-color 0.3s ease;
+  font-family: "League Gothic", sans-serif;
+  font-size: 1.5rem;
+}
+
+.section ul li:first-child {
+  border-top-right-radius: 1rem ;
+border-top-left-radius: 1rem ;
 }
 
 .section ul li:last-child {
-  border-bottom: none; /* Remove border from last list item */
+  border-bottom-right-radius: 1rem ;
+border-bottom-left-radius: 1rem ;
 }
 
 .section ul li a {
   text-decoration: none;
   color: inherit;
   display: block;
-  padding: 0.75rem; /* Add padding to the link for better click area */
+  padding: 0.75rem;
 }
 
 .section ul li:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Slightly darker background on hover */
+  background-color: #ae682a;
 }
-
 
 /* Responsive settings */
 @media (max-width: 48rem) {
   .content {
-    padding: 0.625rem; /* Adjust as needed */
+    padding: 0.625rem;
   }
 }
