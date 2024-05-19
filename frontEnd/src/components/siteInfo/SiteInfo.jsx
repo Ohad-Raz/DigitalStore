@@ -13,17 +13,18 @@ function SiteInfo() {
         
         <h2>Fields of Activity</h2>
         <p>At RODOV CENTER, we specialize in a wide range of fields, including:</p>
+        <section className={styles.section}>
         <ul>
-          <li>Electrical and Electronic Equipment</li>
-          <li>Audio Visual Equipment</li>
-          <li>Lighting</li>
-          <li>Electrical Appliances</li>
-          <li>Industrial Controls and Machinery</li>
-          <li>Electronic Components</li>
-          <li>Electrical Construction Materials</li>
-          <li>Specialty Products</li>
+        <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Electrical and Electronic Equipment</Link></li>
+          <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Audio Visual Equipment</Link></li>
+          <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Lighting</Link></li>
+          <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Electrical Appliances</Link></li>
+          <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Industrial Controls and Machinery</Link></li>
+          <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Electronic Components</Link></li>
+          <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Electrical Construction Materials</Link></li>
+          <li><Link  style={{ textDecoration: 'none'}} to={"/catalog"}>Specialty Products</Link></li>
         </ul>
-        
+        </section>
         <h2>Our Mission</h2>
         <p>At RODOV CENTER, our mission is to deliver superior products and services that exceed our customers' expectations. We are committed to innovation, quality, and sustainability in everything we do.</p>
         

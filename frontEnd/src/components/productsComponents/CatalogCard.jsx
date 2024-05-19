@@ -4,6 +4,9 @@ import AddToCart from "../cartsComponents/AddToCart";
 import styles from "./CatalogCard.module.css";
 
 function CatalogCard({ product }) {
+  if (!product) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className={styles.card}>
       <Link to={`/products/${product._id}`} className="productLink">

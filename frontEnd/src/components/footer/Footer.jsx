@@ -183,7 +183,9 @@ export default function Footer() {
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         © 2024 Copyright:
-        <a className='text-white' href='https://digital-store-de9c9.web.app/'>
+        {/* <a className='text-white' href='https://digital-store-de9c9.web.app/'> */}
+        <a className='text-white' href='https://digitalstore-1.onrender.com/'>
+
           OhadDigitalStore.com
         </a>
       </div>

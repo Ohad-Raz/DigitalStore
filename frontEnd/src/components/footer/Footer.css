@@ -7,8 +7,12 @@
   /* margin-left: none !important; */
 }
 
+.MDBFooter{
+}
+
 .bg-dark{
 display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-content: center;}
+    align-content: center;
+  }
