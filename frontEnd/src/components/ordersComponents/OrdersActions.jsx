@@ -1,10 +1,10 @@
-// OrdersActions.js
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { APIBaseUrl } from "../../config";
 import { UserContext } from "../../context/UserContext";
 import OrdersCard from "./OrdersCard";
-import "./OrdersActions.css"
+import "./OrdersActions.css";
+import { Link } from "react-router-dom";
 
 function OrdersActions() {
   const [orders, setOrders] = useState([]);
@@ -35,14 +35,15 @@ function OrdersActions() {
 
   return (
     <div className="OrdersContainer">
-   
-      {Array.isArray(orders) && 
+      {Array.isArray(orders) && orders.length > 0 ? (
         orders.map((order) => (
           <div key={order._id}>
             <OrdersCard order={order} />
-           </div>
-        ))}
-      {error && <p> <br/>No user orders yet</p>}
+          </div>
+        ))
+      ) : (
+        <p>{error ? "Error fetching orders" : "No user orders yet"} add them from <Link style={{ color: 'black' }} to="/shopping-Cart">here</Link></p>
+      )}
     </div>
   );
 }
