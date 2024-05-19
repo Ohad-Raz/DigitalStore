@@ -140,9 +140,8 @@ const SignIn = () => {
       </Container>
     </ThemeProvider>
     <div className={styles.forgotPassword}>
-    <p>
-    Forgot your password? <Link to="/forgot-password">Reset it here</Link>
-  </p>
+    {/* <p>    Forgot your password? <Link to="/forgot-password">Reset it here</Link>  </p> */}
+    {/* //!development!// */}
 </div></div>
   );
 };
