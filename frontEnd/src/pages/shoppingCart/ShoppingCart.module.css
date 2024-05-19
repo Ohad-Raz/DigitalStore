@@ -1,3 +1,14 @@
 .cartContainer{
   min-height: 98vh;
 }
+
+
+  .cartContainer a {
+    color: #191301;
+    transition: color 0.25s ease;
+    margin-bottom: 0.9rem;
+  }
+  
+  .cartContainer a:hover {
+    color: #ffc107;
+  }

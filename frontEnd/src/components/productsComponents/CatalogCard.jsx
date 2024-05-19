@@ -4,16 +4,16 @@ import AddToCart from "../cartsComponents/AddToCart";
 import styles from "./CatalogCard.module.css";
 
 function CatalogCard({ product }) {
-  if (!product) {
-    return <div>Loading...</div>;
-  }
+
+  
   return (
     <div className={styles.card}>
       <Link to={`/products/${product._id}`} className="productLink">
+        <section className={styles.section}>
         <h2>{product.name}</h2>
         <p>Category: {product.category}</p>
         <p>Company: {product.company}</p>
-        <p>Model Number: {product.modelNumber}</p>
+        {/* <p>Model Number: {product.modelNumber}</p> */}
         <div className={styles.imgContainer}>
         <img className={styles.img} src={product.src} alt={product.name} />
         </div>
@@ -22,6 +22,7 @@ function CatalogCard({ product }) {
         <p>
           Price: {product.price} {product.currency}
         </p>
+        </section>
       </Link>
       <AddToCart  productId={product._id} />
     </div>

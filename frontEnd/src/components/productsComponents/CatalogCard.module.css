@@ -34,6 +34,16 @@
 
   min-height: 95%;
 }
+ 
+.section {
+  color: #191301;
+  transition: color 0.3s ease;
+}
+
+.section:hover {
+  color: #ffc107;
+}
+
 
 .imgContainer {
   border: 2px solid #0000005a;
@@ -51,6 +61,8 @@
   max-height: 15rem;
   
 }
+
+
 
 @media (max-width: 1000px) {
   .card {

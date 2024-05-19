@@ -18,7 +18,7 @@ function ProductCard({ product }) {
       <p>Company: {product.company}</p>
       <p>Model Number: {product.modelNumber}</p>
     
-      <br />
+      
       <Link to={product.linkToPage}>Link to real store Page</Link>
       <p>Color: {product.color}</p>
       <p>Materials: {product.materials}</p>
