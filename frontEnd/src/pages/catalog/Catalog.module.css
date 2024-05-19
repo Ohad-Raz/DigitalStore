@@ -1,3 +1,14 @@
 .catalogContainer{
   min-height: 98vh;
+  background-image: url('../../assets/websiteBackgroundImproved.png');
+  background-attachment: fixed;
+  
+  /* Center the background image */
+  background-position: center;
+  
+  /* Set the background image to no repeat */
+  background-repeat: no-repeat;
+  
+  /* Scale the background image to be as large as possible */
+  background-size: cover;
 }

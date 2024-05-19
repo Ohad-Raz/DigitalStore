@@ -14,7 +14,7 @@ function SiteInfo() {
         <div className={styles.leftContent}>
         {/* <p className={styles.welcome}>Welcome to RODOV CENTER, your premier destination for electrical, electronic, and industrial products. With a rich history and a commitment to excellence, we strive to meet the diverse needs of our customers in the electrical and industrial sectors.</p> */}
         <h2>Our History</h2>
-        <p>RODOV CENTER was founded in [year] with a vision to provide high-quality electrical and industrial products to businesses and individuals alike. Over the years, we have grown into a trusted name in the industry, known for our reliability, expertise, and dedication to customer satisfaction.</p>
+        <p>RODOV CENTER was founded in 1970 with a vision to provide high-quality electrical and industrial products to businesses and individuals alike. Over the years, we have grown into a trusted name in the industry, known for our reliability, expertise, and dedication to customer satisfaction.</p>
         
         <h2>Fields of Activity</h2>
         <p>At RODOV CENTER, we specialize in a wide range of fields, including:</p>

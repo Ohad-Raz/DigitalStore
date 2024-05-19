@@ -1,4 +1,16 @@
+
+
+.ProfileContainer{
+  margin: 1rem;
+  display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .workInProgress{
-  height: 48rem;
- 
+  max-height: 45rem;
+  max-width: 80%;
+
 }
