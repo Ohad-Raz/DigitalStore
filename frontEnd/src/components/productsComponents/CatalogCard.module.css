@@ -17,7 +17,10 @@
   border: 2px solid #ccc; /* Add a solid border */
   border-radius: 10px; /* Add border radius for rounded corners */
   margin: 1rem; /* Add margin to separate items */
-  background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #f7f8f1e1 70%);
+  /* background-image: linear-gradient(to bottom, #ffffffe5, #f6f4e7df 30%, #ffffffe1 70%);
+   */
+   background-color: rgba(255, 255, 255, 0.88);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
 
 
@@ -40,9 +43,9 @@
   transition: color 0.3s ease;
 }
 
-.section:hover {
+/* .section:hover {
   color: #ffc107;
-}
+} */
 
 
 .imgContainer {

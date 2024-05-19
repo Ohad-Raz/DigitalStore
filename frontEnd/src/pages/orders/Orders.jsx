@@ -4,6 +4,7 @@ import styles from "./Orders.module.css"
 
 function Orders() {
   return (
+    <div className={styles.container}>
     <div className={styles.ordersContainer}>
       <h2 style={{ textAlign: 'center' }}>Orders</h2>
     <div>
@@ -11,7 +12,7 @@ function Orders() {
     </div>
     
     </div>
-
+</div>
   )
 }
 
