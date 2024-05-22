@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import styles from './ShippingMethod.module.css';
 
-const ShippingMethod = () => {
-  const [shippingMethod, setShippingMethod] = useState('');
-
-  const handleShippingMethodChange = (event) => {
-    setShippingMethod(event.target.value);
-  };
-
+const ShippingMethod = ({ handleShippingMethodChange, shippingMethod }) => {
   return (
     <div className={styles.dropdown}>
       <Typography variant="h6" gutterBottom>

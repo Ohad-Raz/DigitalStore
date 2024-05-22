@@ -7,7 +7,7 @@ const createOrder = async (req, res) => {
       owner,
       products,
       shippingAddress,
-      billingAddress,
+      // billingAddress,
       contactInfo,
       shippingMethod,
     } = req.body;
@@ -29,7 +29,7 @@ const createOrder = async (req, res) => {
       products: populatedProducts, // Use the populated products array
       totalPrice,
       shippingAddress,
-      billingAddress,
+      // billingAddress,
       contactInfo,
       shippingMethod,
     });
