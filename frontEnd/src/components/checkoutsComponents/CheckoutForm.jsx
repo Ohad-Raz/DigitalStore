@@ -20,7 +20,6 @@ function CheckoutForm() {
   const { user } = useContext(UserContext);
   const authorizationToken = localStorage.getItem("token");
   const [shippingAddress, setShippingAddress] = useState({});
-  const [billingAddress, setBillingAddress] = useState({});
   const [contactInfo, setContactInfo] = useState({});
   const [shippingMethod, setShippingMethod] = useState('');
   const [productsInCart, setProductsInCart] = useState([]);
@@ -39,7 +38,6 @@ function CheckoutForm() {
           Authorization: `Bearer ${authorizationToken}`,
         },
       });
-      console.log('Products in cart:', response.data.products); 
       setProductsInCart(response.data.products); 
       calculateTotalPrice(response.data.products); 
     } catch (error) {
@@ -59,10 +57,6 @@ function CheckoutForm() {
   const handleShippingAddressChange = (e) => {
     setShippingAddress({ ...shippingAddress, [e.target.name]: e.target.value });
   };
-  
-  const handleBillingAddressChange = (e) => {
-    setBillingAddress({ ...billingAddress, [e.target.name]: e.target.value });
-  };
 
   const handleContactInfoChange = (e) => {
     setContactInfo({ ...contactInfo, [e.target.name]: e.target.value });
@@ -81,11 +75,10 @@ function CheckoutForm() {
       products: mappedProducts,
       totalPrice,
       shippingAddress,
-      billingAddress,
       contactInfo,
       shippingMethod,
     };
-  
+
     try {
       const response = await axios.post(`${APIBaseUrl}/orders`, checkoutData, {
         headers: {
@@ -121,12 +114,13 @@ function CheckoutForm() {
           {activeStep === 0 && (
             <ShippingInformation 
               handleShippingAddressChange={handleShippingAddressChange} 
-              handleBillingAddressChange={handleBillingAddressChange} 
+              shippingAddress={shippingAddress} 
             />
           )}
           {activeStep === 1 && (
             <ContactInformation 
               handleContactInfoChange={handleContactInfoChange} 
+              contactInfo={contactInfo} 
             />
           )}
           {activeStep === 2 && (
@@ -135,23 +129,23 @@ function CheckoutForm() {
               shippingMethod={shippingMethod} 
             />
           )}
+          <div className={styles.btnContainer}>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={styles.btn}
+            >
+              Back
+            </Button>
+            <Button
+              variant="contained"
+              onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
+              className={styles.btn}
+            >
+              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+            </Button>
+          </div>
         </form>
-      </div>
-      <div className={styles.btnContainer}>
-        <Button
-          disabled={activeStep === 0}
-          onClick={handleBack}
-          className={styles.btn}
-        >
-          Back
-        </Button>
-        <Button
-          variant="contained"
-          onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
-          className={styles.btn}
-        >
-          {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-        </Button>
       </div>
     </div>
   );
