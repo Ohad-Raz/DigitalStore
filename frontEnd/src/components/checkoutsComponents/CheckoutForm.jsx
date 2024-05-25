@@ -102,6 +102,8 @@ function CheckoutForm() {
 
   return (
     <div className={styles.container}>
+    <div className={styles.stepperContainer}>
+
       <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
         {steps.map((label) => (
           <Step key={label}>
@@ -109,6 +111,7 @@ function CheckoutForm() {
           </Step>
         ))}
       </Stepper>
+      </div>
       <div className={styles.formContainer}>
         <form className={styles.form} onSubmit={handleSubmit}>
           {activeStep === 0 && (

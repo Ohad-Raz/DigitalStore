@@ -20,14 +20,16 @@ function Auth() {
 
 
   return (
-    <div className={styles.authContainer}>
+    <div className={styles.container}>
       {/* Conditional rendering based on registration status */}
+      <div className={styles.authContainer}>
       {showSignIn || justRegistered ? <SignIn /> : <Register onRegistrationSuccess={handleRegistrationSuccess} />}
       <div className={styles.registerSignin}>
         {showSignIn ? "Don't have an account? " : "Already have an account? "}
         <button onClick={toggleForm}>
           {showSignIn ? "Register" : "Sign In"}
         </button>
+      </div>
       </div>
     </div>
   );
