@@ -63,7 +63,7 @@ export default function Footer() {
         </section>
 
         <section className='mb-4'>
-          <p>Thank you for choosing RODOV CENTER for your electrical and industrial needs. For inquiries, orders, or assistance, please don't hesitate to  
+          <p>Thank you for choosing RUDOV CENTER for your electrical and industrial needs. For inquiries, orders, or assistance, please don't hesitate to  
           <a href={"/contact"} style={{textDecoration: 'underline', color: 'white'}}> contact us</a>
         </p>
         </section>

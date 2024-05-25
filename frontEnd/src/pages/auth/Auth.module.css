@@ -1,6 +1,5 @@
-.authContainer{
-  margin-top: -3rem;
-  min-height: 89vh;
+.container{
+  min-height: 98vh;
   background-image: url('../../assets/websiteBackgroundImproved.png');
   background-attachment: fixed;
   
@@ -12,6 +11,28 @@
   
   /* Scale the background image to be as large as possible */
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  
+}
+
+.authContainer{
+  border: 2px solid #ccc; /* Add a solid border */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  margin-top: 3rem;
+
+   background-color: rgba(255, 255, 255, 0.5);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   height: 82vh;
+   width: 85vw;
+   display: flex;
+   flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
 }
 
 .registerSignin{
