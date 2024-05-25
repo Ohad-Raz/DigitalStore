@@ -45,6 +45,9 @@ button {
   /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
+  -webkit-appearance: none; /* For Chrome, Safari, and other WebKit browsers */
+  -moz-appearance: none;    /* For Firefox */
+  appearance: none;         /* Standard property */
 }
 button:hover {
   border-color:  #ffc1075d;
