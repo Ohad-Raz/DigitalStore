@@ -72,15 +72,17 @@ function CheckoutForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const mappedProducts = productsInCart.map(item => ({ item: item.item._id, quantity: item.quantity }));
+    const currency = productsInCart[0].item.currency; // Assuming all products have the same currency
   
     const checkoutData = {
       owner: user.id,
       products: mappedProducts,
       totalPrice,
+      currency, // Include currency here
       shippingAddress,
       contactInfo,
       shippingMethod,
-      senderEmail: contactInfo.email, // Include the user's email here
+      senderEmail: contactInfo.email,
     };
   
     try {
@@ -94,34 +96,29 @@ function CheckoutForm() {
   
       // Prepare email options
       const emailOptions = {
-        from_name: shippingAddress.shippingName || 'N/A', // Use shippingName here
+        from_name: shippingAddress.shippingName, // Name of the person placing the order
         to_name: 'Company',
         to_email: 'companydev23@gmail.com',
+        from_email: contactInfo.email, // Set this dynamically to the user's email
+        reply_to: contactInfo.email, // Set this to the user's email if you want replies to go to them
         subject: 'New Order Created',
-        message: `Order Details:\n\n${JSON.stringify(checkoutData, null, 2)}`,
+        products: productsInCart.map(item => `${item.item.name} (Quantity: ${item.quantity})`).join('\n'),
+        total_price: `${totalPrice.toFixed(2)} ${currency}`,
         shipping_address: `${shippingAddress.shippingStreet}, ${shippingAddress.shippingCity}, ${shippingAddress.shippingCountry}, ${shippingAddress.shippingPostalCode}`,
-        contact_info: {
-          name: contactInfo.name || shippingAddress.shippingName || 'N/A',
-          email: contactInfo.email || 'N/A',
-          phone: contactInfo.phone || 'N/A',
-        },
+        contact_info: `Name: ${shippingAddress.shippingName}, Email: ${contactInfo.email}, Phone: ${contactInfo.phone}`,
         shipping_method: shippingMethod,
       };
-      
-      
-      
       
   
       // Send email using EmailJS
       await emailjs.send('service_ynk02sf', 'template_j6ics4s', emailOptions, 'zlIKEt17O0AFf-hVo');
-      
+  
       navigate('/orders');
     } catch (error) {
       console.error('Error completing checkout:', error);
     }
   };
   
-
   
 
   
