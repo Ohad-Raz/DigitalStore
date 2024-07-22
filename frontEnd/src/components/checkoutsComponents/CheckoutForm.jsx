@@ -13,6 +13,7 @@ import ShippingInformation from './ShippingInformation';
 import ContactInformation from './ContactInformation';
 import ShippingMethod from './ShippingMethod.jsx';
 import styles from "./CheckoutForm.module.css";
+import emailjs from 'emailjs-com';
 
 const steps = ['Shipping Information', 'Contact Information', 'Shipping Method'];
 
@@ -83,17 +84,47 @@ function CheckoutForm() {
     };
   
     try {
+      // Send order data to your server
       const response = await axios.post(`${APIBaseUrl}/orders`, checkoutData, {
         headers: {
           Authorization: `Bearer ${authorizationToken}`,
         },
       });
       console.log('Checkout successful:', response.data);
+  
+      // Prepare email options
+      const emailOptions = {
+        from_name: shippingAddress.shippingName || 'N/A', // Use shippingName here
+        to_name: 'Company',
+        to_email: 'companydev23@gmail.com',
+        subject: 'New Order Created',
+        message: `Order Details:\n\n${JSON.stringify(checkoutData, null, 2)}`,
+        shipping_address: `${shippingAddress.shippingStreet}, ${shippingAddress.shippingCity}, ${shippingAddress.shippingCountry}, ${shippingAddress.shippingPostalCode}`,
+        contact_info: {
+          name: contactInfo.name || shippingAddress.shippingName || 'N/A',
+          email: contactInfo.email || 'N/A',
+          phone: contactInfo.phone || 'N/A',
+        },
+        shipping_method: shippingMethod,
+      };
+      
+      
+      
+      
+  
+      // Send email using EmailJS
+      await emailjs.send('service_ynk02sf', 'template_j6ics4s', emailOptions, 'zlIKEt17O0AFf-hVo');
+      
       navigate('/orders');
     } catch (error) {
       console.error('Error completing checkout:', error);
     }
   };
+  
+
+  
+
+  
   
   
   
