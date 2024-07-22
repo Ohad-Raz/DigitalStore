@@ -66,6 +66,8 @@ function CheckoutForm() {
     setShippingMethod(e.target.value);
   };
 
+  const [statusMessage, setStatusMessage] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const mappedProducts = productsInCart.map(item => ({ item: item.item._id, quantity: item.quantity }));
@@ -77,8 +79,9 @@ function CheckoutForm() {
       shippingAddress,
       contactInfo,
       shippingMethod,
+      senderEmail: contactInfo.email, // Include the user's email here
     };
-
+  
     try {
       const response = await axios.post(`${APIBaseUrl}/orders`, checkoutData, {
         headers: {
@@ -91,6 +94,35 @@ function CheckoutForm() {
       console.error('Error completing checkout:', error);
     }
   };
+  
+  
+  
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const mappedProducts = productsInCart.map(item => ({ item: item.item._id, quantity: item.quantity }));
+  
+  //   const checkoutData = {
+  //     owner: user.id,
+  //     products: mappedProducts,
+  //     totalPrice,
+  //     shippingAddress,
+  //     contactInfo,
+  //     shippingMethod,
+  //   };
+
+  //   try {
+  //     const response = await axios.post(`${APIBaseUrl}/orders`, checkoutData, {
+  //       headers: {
+  //         Authorization: `Bearer ${authorizationToken}`,
+  //       },
+  //     });
+  //     console.log('Checkout successful:', response.data);
+  //     navigate('/orders');
+  //   } catch (error) {
+  //     console.error('Error completing checkout:', error);
+  //   }
+  // };
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -102,6 +134,7 @@ function CheckoutForm() {
 
   return (
     <div className={styles.container}>
+          {statusMessage && <p>{statusMessage}</p>}
     <div className={styles.stepperContainer}>
 
       <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
@@ -150,6 +183,7 @@ function CheckoutForm() {
           </div>
         </form>
       </div>
+      
     </div>
   );
 }

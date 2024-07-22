@@ -1,35 +1,28 @@
 const nodemailer = require("nodemailer");
 
-// const transporter = nodemailer.createTransport({
-//   service: "Gmail",
-//   host: process.env.EMAIL_HOST,
-//   port: process.env.EMAIL_PORT,
-//   auth: {
-//     user: process.env.EMAIL_USERNAME,
-//     pass: process.env.EMAIL_PASSWORD,
-//   },
-// });
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  auth: {
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
 
 const sendEmail = async (options) => {
-  const transporter = nodemailer.createTransport({
-    service: "Gmail",
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
-
   const mailOptions = {
-    from: "Digital App",
-    to: options.email,
+    from: options.from, // Dynamic sender address
+    to: process.env.COMPANY_EMAIL, // This should be in your .env file
     subject: options.subject,
     text: options.message,
   };
 
   await transporter.sendMail(mailOptions);
 };
+
+
+
 
 function sendMonthlyEmail(email) {
   const mailOptions = {

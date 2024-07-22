@@ -1,5 +1,7 @@
 const Order = require("../models/orders.model");
 const { Product } = require("../models/product.model"); // Import the Product model
+const { sendEmail } = require('../utils/email');
+
 const createOrder = async (req, res) => {
   try {
     const {
@@ -7,9 +9,9 @@ const createOrder = async (req, res) => {
       owner,
       products,
       shippingAddress,
-      // billingAddress,
       contactInfo,
       shippingMethod,
+      senderEmail, // Email of the user who created the order
     } = req.body;
 
     // Populate the currency field for each product
@@ -19,17 +21,16 @@ const createOrder = async (req, res) => {
         return {
           item: populatedProduct,
           quantity: product.quantity,
-          currency: populatedProduct.currency, // Include the currency field
+          currency: populatedProduct.currency,
         };
       })
     );
 
     const newOrder = new Order({
       owner,
-      products: populatedProducts, // Use the populated products array
+      products: populatedProducts,
       totalPrice,
       shippingAddress,
-      // billingAddress,
       contactInfo,
       shippingMethod,
     });
@@ -38,18 +39,79 @@ const createOrder = async (req, res) => {
     newOrder.owner = userId;
     await newOrder.save();
 
+    // Prepare email options
+    const emailOptions = {
+      from: senderEmail, // User's email as sender
+      subject: 'New Order Created',
+      message: `Order Details: ${JSON.stringify(newOrder, null, 2)}`,
+    };
+
+    // Send email to the company's email
+    await sendEmail(emailOptions);
+
     const orders = await Order.find({ owner: userId }).populate(
       "products.item"
     );
 
-    res
-      .status(201)
-      .json({ message: "Order created successfully", data: orders });
+    res.status(201).json({ message: "Order created successfully", data: orders });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
   }
 };
+
+
+
+// const createOrder = async (req, res) => {
+//   try {
+//     const {
+//       totalPrice,
+//       owner,
+//       products,
+//       shippingAddress,
+//       // billingAddress,
+//       contactInfo,
+//       shippingMethod,
+//     } = req.body;
+
+//     // Populate the currency field for each product
+//     const populatedProducts = await Promise.all(
+//       products.map(async (product) => {
+//         const populatedProduct = await Product.findById(product.item);
+//         return {
+//           item: populatedProduct,
+//           quantity: product.quantity,
+//           currency: populatedProduct.currency, // Include the currency field
+//         };
+//       })
+//     );
+
+//     const newOrder = new Order({
+//       owner,
+//       products: populatedProducts, // Use the populated products array
+//       totalPrice,
+//       shippingAddress,
+//       // billingAddress,
+//       contactInfo,
+//       shippingMethod,
+//     });
+//     const userId = req.user.id;
+
+//     newOrder.owner = userId;
+//     await newOrder.save();
+
+//     const orders = await Order.find({ owner: userId }).populate(
+//       "products.item"
+//     );
+
+//     res
+//       .status(201)
+//       .json({ message: "Order created successfully", data: orders });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// };
 
 
 const getUserOrders = async (req, res) => {

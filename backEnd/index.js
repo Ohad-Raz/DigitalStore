@@ -5,7 +5,7 @@ const { config } = require("./config");
 
 dotenv.config({ path: "./.env" });
 mongoose
-  .connect(config.MONGO_URL)
+  .connect(config.MONGO_URL )
   .then(() => {
     console.log("connected to db");
   })

@@ -5,10 +5,10 @@ const {auth} = require("../middlewares/auth");
 const {User} = require("../models/users.model")
 const { forgotPassword, resetPassword } = require("../controllers/users.controller");
 
-router.post("/reset-password/:token", resetPassword);
-router.post("/forgot-password", forgotPassword);
+router.post("/resetPassword/:token", resetPassword);
+router.post("/forgotPassword", forgotPassword);
 // Route to handle GET request for reset password form
-router.get("/reset-password/:token", (req, res) => {
+router.get("/resetPassword/:token", (req, res) => {
   res.send("Reset Password Form"); // Just send a response indicating that this is the reset password form
 });
 
