@@ -8,6 +8,7 @@ import Nav from "react-bootstrap/Nav";
 import NavLink from "react-bootstrap/esm/NavLink";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../../assets/logox4-removebg.png";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 const NavBar = () => {
   const { toggleTheme, selectedTheme } = useContext(ThemeContext);
@@ -79,6 +80,8 @@ const NavBar = () => {
 
             </Nav>
             <Nav className="ml-auto">
+        <LanguageSwitcher /> {/* Place the LanguageSwitcher here */}
+
               <div className="AuthDivNav">
                 {user ? (
                   <div className="DivForSignOutBtn">
@@ -91,12 +94,12 @@ const NavBar = () => {
                     >
                       Sign Out
                     </button>
-                    <buttons
-                      className={`MoonSun ${themeClass}`}
-                      onClick={toggleTheme}
-                    >
-                      <i className={`fa-solid fa-${changeSunMoon}`}></i>
-                    </buttons>
+                    <button
+  className={`MoonSun ${themeClass}`}
+  onClick={toggleTheme}
+>
+  <i className={`fa-solid fa-${changeSunMoon}`}></i>
+</button>
                   </div>
                 ) : (
                   <Link to={"/auth"}>Auth</Link>

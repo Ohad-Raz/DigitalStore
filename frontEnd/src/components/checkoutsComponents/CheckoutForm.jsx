@@ -1,31 +1,35 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { APIBaseUrl } from "../../config";
-import { UserContext } from '../../context/UserContext';
-import { useNavigate } from 'react-router-dom';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import ShippingInformation from './ShippingInformation';
-import ContactInformation from './ContactInformation';
-import ShippingMethod from './ShippingMethod.jsx';
+import { UserContext } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import ShippingInformation from "./ShippingInformation";
+import ContactInformation from "./ContactInformation";
+import ShippingMethod from "./ShippingMethod.jsx";
 import styles from "./CheckoutForm.module.css";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 
-const steps = ['Shipping Information', 'Contact Information', 'Shipping Method'];
+const steps = [
+  "Shipping Information",
+  "Contact Information",
+  "Shipping Method",
+];
 
 function CheckoutForm() {
   const { user } = useContext(UserContext);
   const authorizationToken = localStorage.getItem("token");
   const [shippingAddress, setShippingAddress] = useState({});
   const [contactInfo, setContactInfo] = useState({});
-  const [shippingMethod, setShippingMethod] = useState('');
+  const [shippingMethod, setShippingMethod] = useState("");
   const [productsInCart, setProductsInCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [activeStep, setActiveStep] = useState(0); 
+  const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,19 +43,22 @@ function CheckoutForm() {
           Authorization: `Bearer ${authorizationToken}`,
         },
       });
-      setProductsInCart(response.data.products); 
-      calculateTotalPrice(response.data.products); 
+      setProductsInCart(response.data.products);
+      calculateTotalPrice(response.data.products);
     } catch (error) {
-      console.error('Error fetching products in cart:', error);
+      console.error("Error fetching products in cart:", error);
     }
   };
-  
+
   const calculateTotalPrice = (cartItems) => {
     if (!Array.isArray(cartItems)) {
       setTotalPrice(0);
       return;
     }
-    const totalPrice = cartItems.reduce((total, item) => total + (item.quantity * item.item.price), 0);
+    const totalPrice = cartItems.reduce(
+      (total, item) => total + item.quantity * item.item.price,
+      0
+    );
     setTotalPrice(totalPrice);
   };
 
@@ -67,13 +74,16 @@ function CheckoutForm() {
     setShippingMethod(e.target.value);
   };
 
-  const [statusMessage, setStatusMessage] = useState('');
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const mappedProducts = productsInCart.map(item => ({ item: item.item._id, quantity: item.quantity }));
+    const mappedProducts = productsInCart.map((item) => ({
+      item: item.item._id,
+      quantity: item.quantity,
+    }));
     const currency = productsInCart[0].item.currency; // Assuming all products have the same currency
-  
+
     const checkoutData = {
       owner: user.id,
       products: mappedProducts,
@@ -84,7 +94,7 @@ function CheckoutForm() {
       shippingMethod,
       senderEmail: contactInfo.email,
     };
-  
+
     try {
       // Send order data to your server
       const response = await axios.post(`${APIBaseUrl}/orders`, checkoutData, {
@@ -92,44 +102,44 @@ function CheckoutForm() {
           Authorization: `Bearer ${authorizationToken}`,
         },
       });
-      console.log('Checkout successful:', response.data);
-  
+      console.log("Checkout successful:", response.data);
+
       // Prepare email options
       const emailOptions = {
         from_name: shippingAddress.shippingName, // Name of the person placing the order
-        to_name: 'Company',
-        to_email: 'companydev23@gmail.com',
+        to_name: "Company",
+        to_email: "companydev23@gmail.com",
         from_email: contactInfo.email, // Set this dynamically to the user's email
         reply_to: contactInfo.email, // Set this to the user's email if you want replies to go to them
-        subject: 'New Order Created',
-        products: productsInCart.map(item => `${item.item.name} (Quantity: ${item.quantity})`).join('\n'),
+        subject: "New Order Created",
+        products: productsInCart
+          .map((item) => `${item.item.name} (Quantity: ${item.quantity})`)
+          .join("\n"),
         total_price: `${totalPrice.toFixed(2)} ${currency}`,
         shipping_address: `${shippingAddress.shippingStreet}, ${shippingAddress.shippingCity}, ${shippingAddress.shippingCountry}, ${shippingAddress.shippingPostalCode}`,
         contact_info: `Name: ${shippingAddress.shippingName}, Email: ${contactInfo.email}, Phone: ${contactInfo.phone}`,
         shipping_method: shippingMethod,
+        cc_email: contactInfo.email,
       };
-      
-  
+
       // Send email using EmailJS
-      await emailjs.send('service_ynk02sf', 'template_j6ics4s', emailOptions, 'zlIKEt17O0AFf-hVo');
-  
-      navigate('/orders');
+      await emailjs.send(
+        "service_ynk02sf",
+        "template_j6ics4s",
+        emailOptions,
+        "zlIKEt17O0AFf-hVo"
+      );
+
+      navigate("/orders");
     } catch (error) {
-      console.error('Error completing checkout:', error);
+      console.error("Error completing checkout:", error);
     }
   };
-  
-  
-
-  
-  
-  
-  
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   const mappedProducts = productsInCart.map(item => ({ item: item.item._id, quantity: item.quantity }));
-  
+
   //   const checkoutData = {
   //     owner: user.id,
   //     products: mappedProducts,
@@ -162,35 +172,34 @@ function CheckoutForm() {
 
   return (
     <div className={styles.container}>
-          {statusMessage && <p>{statusMessage}</p>}
-    <div className={styles.stepperContainer}>
-
-      <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+      {statusMessage && <p>{statusMessage}</p>}
+      <div className={styles.stepperContainer}>
+        <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
       </div>
       <div className={styles.formContainer}>
         <form className={styles.form} onSubmit={handleSubmit}>
           {activeStep === 0 && (
-            <ShippingInformation 
-              handleShippingAddressChange={handleShippingAddressChange} 
-              shippingAddress={shippingAddress} 
+            <ShippingInformation
+              handleShippingAddressChange={handleShippingAddressChange}
+              shippingAddress={shippingAddress}
             />
           )}
           {activeStep === 1 && (
-            <ContactInformation 
-              handleContactInfoChange={handleContactInfoChange} 
-              contactInfo={contactInfo} 
+            <ContactInformation
+              handleContactInfoChange={handleContactInfoChange}
+              contactInfo={contactInfo}
             />
           )}
           {activeStep === 2 && (
-            <ShippingMethod 
-              handleShippingMethodChange={handleShippingMethodChange} 
-              shippingMethod={shippingMethod} 
+            <ShippingMethod
+              handleShippingMethodChange={handleShippingMethodChange}
+              shippingMethod={shippingMethod}
             />
           )}
           <div className={styles.btnContainer}>
@@ -203,15 +212,16 @@ function CheckoutForm() {
             </Button>
             <Button
               variant="contained"
-              onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
+              onClick={
+                activeStep === steps.length - 1 ? handleSubmit : handleNext
+              }
               className={styles.btn}
             >
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              {activeStep === steps.length - 1 ? "Finish" : "Next"}
             </Button>
           </div>
         </form>
       </div>
-      
     </div>
   );
 }

@@ -1,0 +1,16 @@
+.languageSwitcher {
+  position: relative;
+}
+
+.languageSwitcher select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.languageSwitcher select:focus {
+  outline: none;
+  border-color: #007bff; /* Optional: change border color on focus */
+}
